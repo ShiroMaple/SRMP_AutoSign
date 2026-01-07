@@ -1,0 +1,111 @@
+{
+    "entry_signSkland": {
+        "next": [
+            "IgnoreUpdates",
+            "EnterArknightsPage",
+            "EnterSignInBenefitsPage",
+            "SignInBenefitsPageFlag"
+        ],
+        "interrupt": "StartSkland"
+    },
+    "StartSkland": {
+        "action": "StartApp",
+        "package": "com.hypergryph.skland/com.hypergryph.skland.SchemeActivity"
+    },
+    "CloseSkland": {
+        "enabled": true,
+        "action": "StopApp",
+        "package": "com.hypergryph.skland"
+    },
+    "IgnoreUpdates": {
+        "recognition": "OCR",
+        "expected": "下次再说",
+        "roi": [
+            260,
+            886,
+            202,
+            133
+        ],
+        "action": "Click",
+        "next": [
+            "EnterArknightsPage"
+        ]
+    },
+    "EnterArknightsPage": {
+        "recognition": "TemplateMatch",
+        "green_mask": true,
+        "template": [
+            "Skland/EnterArknightsPage_0.png",
+            "Skland/EnterArknightsPage_1.png"
+        ],
+        "roi": [
+            19,
+            44,
+            503,
+            121
+        ],
+        "action": "Click",
+        "next": [
+            "EnterSignInBenefitsPage",
+            "SignInBenefitsPageFlag",
+            "EnterArknightsPage"
+        ]
+    },
+    "EnterSignInBenefitsPage": {
+        "recognition": "FeatureMatch",
+        "template": "Skland/EnterSignInBenefitsPage.png",
+        "roi": [
+            13,
+            222,
+            178,
+            376
+        ],
+        "action": "Click",
+        "next": [
+            "SignInBenefitsPageFlag"
+        ]
+    },
+    "SignInBenefitsPageFlag": {
+        "recognition": "TemplateMatch",
+        "template": "Skland/SignInBenefitsPageFlag.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "next": [
+            "Sign"
+        ]
+    },
+    "Sign": {
+        "recognition": "TemplateMatch",
+        "template": "Skland/Receive.png",
+        "roi": [
+            63,
+            371,
+            649,
+            672
+        ],
+        "threshold": 0.5,
+        "action": "Click",
+        "next": "SKland-result_SignSucceed"
+    },
+    "SKland-result_SignSucceed":{
+        "recognition": {
+            "type": "TemplateMatch",
+            "param":{
+                "template": "Skland/SignSucceed.png"                
+            }
+        },
+        "post_delay": 0,
+        "action":"Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=正常&msg=森空岛签到成功",
+        "next": [
+            "CloseSkland",
+            "Stop"
+        ]
+    },
+    "Stop": {}
+}

@@ -1,0 +1,44 @@
+{
+    "entry_signTaobao":{
+
+    },
+    "Taobao-ignoreUpdate": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "立即安装",
+                "roi": [257, 1025, 213, 74]
+            }
+        },
+        "next": "Taobao-clickClose"
+    },
+    "Taobao-clickBack": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "empty.png",
+                "roi": [0, 0, 100, 100]
+            }
+        },
+        "action": "Click",
+        "next": "Taobao-enterMyPage"
+    },
+    "Taobao-enterMyPage":{},
+    "Taobao-clickClose":{},
+    "startTaobao":{
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.taobao.taobao"
+            }
+        }
+    },
+    "stopTaobao":{
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.taobao.taobao"
+            }
+        }
+    }
+}

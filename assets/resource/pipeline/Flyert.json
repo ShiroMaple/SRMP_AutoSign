@@ -1,0 +1,78 @@
+{ //缺少完成确认，会遗漏
+    "entry_signFlyert": {
+        "rate_limit": 1500,
+        "next": [
+            "Flyert-enterSignPage"
+        ],
+        "interrupt": [
+            "skipAD_LowerRightCorner",
+            "startFlyert"
+        ]
+    },
+    "Flyert-IgnoreUpdates": {},
+    "Flyert-enterSignPage": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Flyert/SignButton.png",
+                "roi": [
+                    0,
+                    14,
+                    152,
+                    156
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Flyert-checkSignSucceed",
+            "Flyert-enterSignPage"
+        ]
+    },
+    "Flyert-checkSignSucceed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "签到成功",
+                "roi": [
+                    169,
+                    468,
+                    277,
+                    179
+                ]
+            }
+        },
+        "next": "Flyert-result_Succeed"
+    },
+    "Flyert-checkSigned": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "做任务赚威望",
+                "roi": [
+                    206,
+                    672,
+                    306,
+                    148
+                ]
+            }
+        },
+        "next": "Flyert-result_Succeed"
+    },
+    "Flyert-result_Succeed":{
+        "pre_delay": 0,
+        "post_delay": 0,
+        "action": "Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=正常&msg=飞客签到成功",
+        "next": "stopFlyert"        
+    },
+    "startFlyert": {
+        "action": "StartApp",
+        "package": "com.ideal.flyerteacafes"
+    },
+    "stopFlyert": {
+        "action": "StopApp",
+        "package": "com.ideal.flyerteacafes"
+    }
+}

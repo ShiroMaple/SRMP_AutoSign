@@ -1,0 +1,132 @@
+{
+    "entry_signQQ": {
+        "next": [
+            "QQ-confirmApp"
+        ],
+        "interrupt": [
+            "startQQ"
+        ]
+    },
+    "QQ-confirmApp": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "频道",
+                "recommended roi": [
+                    189,
+                    1478,
+                    162,
+                    123
+                ]
+            }
+        },
+        "next": "QQ-enterLeftSidePage",
+        "interrupt": "FullScreen-swipeBack"
+    },
+    "QQ-enterLeftSidePage": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "QQ/iconMyHeadPic.png",
+                "recommended roi": [
+                    0,
+                    21,
+                    172,
+                    177
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "QQ-enterSignPage",
+            "QQ-enterLeftSidePage"
+        ]
+    },
+    "QQ-enterSignPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "打卡",
+                "recommended roi": [
+                    0,
+                    20,
+                    227,
+                    168
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "QQ-flagSignPage",
+            "QQ-enterSignPage"
+        ]
+    },
+    "QQ-flagSignPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "我的卡片",
+                "recommended roi": [
+                    518,
+                    24,
+                    202,
+                    163
+                ]
+            }
+        },
+        "next": [
+            "QQ-sign"
+        ],
+        "interrupt": "QQ-swipeUp",
+        "on_error": "stopQQ"
+    },
+    "QQ-sign": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "立即打卡",
+                    "快速打卡",
+                    "点亮他/她",
+                    "立即抽卡"
+                ],
+                "roi": [
+                    41,
+                    691,
+                    634,
+                    579
+                ]
+            }
+        },
+        "action": "Click",
+        "post_delay": 1500,
+        "next": "QQ-flagSignPage"
+    },
+    "QQ-swipeUp": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    358,
+                    1010,
+                    1,
+                    1
+                ],
+                "end": [
+                    358,
+                    504,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "startQQ": {
+        "action": "StartApp",
+        "package": "com.tencent.mobileqq"
+    },
+    "stopQQ": {
+        "action": "StopApp",
+        "package": "com.tencent.mobileqq"
+    }
+}

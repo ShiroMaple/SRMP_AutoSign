@@ -1,0 +1,127 @@
+{
+    "entry_signJD": {
+        "next": [
+            "JD-flagMainPage"
+        ],
+        "interrupt": [
+            //"skipAD_LowerRightCorner",
+            "startJD"
+        ]
+    },
+    "JD-flagMainPage": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Jingdong/iconMainPage.png",
+                "roi": [
+                    0,
+                    1433,
+                    163,
+                    168
+                ]
+            }
+        },
+        "next": "JD-enterSignPage"
+    },
+    "JD-enterMyPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "我的",
+                "roi": [
+                    558,
+                    1430,
+                    162,
+                    171
+                ]
+            }
+        },
+        "action": "Click",
+        "next": "JD-enterSignPage",
+        "pre_delay": 1500
+    },
+    "JD-enterSignPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "秒杀",
+                "roi": [2,321,153,401]
+            }
+        },
+        "action": "Click",
+        "post_wait_freezes": 2000,
+        "next": [
+            "JD-result_Signed",
+            "JD-sign",
+            "JD-enterSignPage"
+        ],
+        "interrupt": "JD-clickBack"
+    },
+    "JD-sign": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "签到领豆",
+                "roi": [
+                    21,
+                    351,
+                    332,
+                    137
+                ]
+            }
+        },
+        "action": "Click",
+        "post_wait_freezes": 1500,
+        "next": [
+            "JD-result_Signed",
+            "JD-sign",
+            "JD-enterSignPage"
+        ],
+        "interrupt": "JD-clickBack"
+    },
+    "JD-result_Signed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "赚更多京豆",
+                "roi": [
+                    21,
+                    351,
+                    332,
+                    137
+                ]
+            }
+        },
+        "action":"Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=正常&msg=京东签到成功",
+        "next": "stopJD"
+    },
+    "JD-clickBack": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Jingdong/buttonBack1.png",
+                    "Jingdong/buttonBack2.png"
+                ],
+                "roi": [
+                    0,
+                    38,
+                    144,
+                    149
+                ]
+            }
+        },
+        "action": "Click",
+        "post_delay": 1500
+    },
+    "startJD": {
+        "action": "StartApp",
+        "package": "com.jingdong.app.mall"
+    },
+    "stopJD": {
+        "action": "StopApp",
+        "package": "com.jingdong.app.mall"
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "entry_test": {
+        "next": [
+            "打开设置"
+        ],
+        "timeout": 2000
+    },
+    "testOCR": {
+        "recognition": "OCR",
+        "expected": "123",
+        "next": "testDelayNotice1"
+    },
+    "testDelayNotice1": {
+        "action": "Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=提醒&msg=这是测试延迟提醒1",
+        "next": "testDelayNotice2"
+    },
+    "testDelayNotice2": {
+        "action": "Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=提醒&msg=这是测试延迟提醒2",
+        "next": "testDelayNotice3"
+    },
+    "testDelayNotice3": {
+        "action": "Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=提醒&msg=这是测试延迟提醒3",
+        "next": [
+            "testOCR"
+        ],
+        "timeout": 2000
+    },
+    "explore_NodeInfo": {
+        "action": "Custom",
+        "custom_action": "my_action_111"
+    },
+    "tryTestCode": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": ".*",
+                "roi": [
+                    546,
+                    584,
+                    131,
+                    57
+                ]
+            }
+        },
+        "action": "Custom",
+        "custom_action": "my_action_111",
+        "custom_action_param": {
+            "srmp": "Here the world!"
+            //"recde":
+        }
+    },
+    "tryJump": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "NodeOverride",
+        //"custom_action_param": "node=FullScreen-swipeUp&keys=next&values=打开设置",
+        "custom_action_param": {
+            "FullScreen-swipeUp": {
+                //"next":"打开相册"
+                "next": "打开设置"
+            }
+        },
+        "next": "FullScreen-swipeUp"
+    },
+    "打开设置": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "设置"
+            }
+        },
+        "action": "Click"
+    },
+    "打开相册": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "相册"
+            }
+        },
+        "action": "Click"
+    },
+    "tryUnlock": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "swipeUnlock",
+        "custom_action_param": "x1=355&y1=573&x2=129&y2=801&x3=586&y3=801&x4=355&y4=1034"
+    }
+}
