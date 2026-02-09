@@ -1,0 +1,55 @@
+{
+    "entry_signXiaoheihe": {
+        "next": [
+            "enterXiaoheihe",
+            "Xiaoheihe-result_SignSucceed",
+            "[JumpBack]startXiaoheihe"
+        ]
+    },
+    "startXiaoheihe": {
+        "action": "StartApp",
+        "package": "com.max.xiaoheihe"
+    },
+    "stopXiaoheihe": {
+        "enabled": true,
+        "action": "StopApp",
+        "package": "com.max.xiaoheihe"
+    },
+    "enterXiaoheihe": {
+        "recognition": "TemplateMatch",
+        "template": "Xiaoheihe/enterXiaoheihe.png",
+        "roi": [
+            19,
+            1471,
+            101,
+            92
+        ],
+        "next": ["Xiaoheihe-result_SignSucceed"],
+        "on_error": [
+            "Xiaoheihe-result_failed"
+        ],
+        "timeout": 6000
+    },
+    "Xiaoheihe-result_SignSucceed": {
+        "recognition": "TemplateMatch",
+        "template": "Xiaoheihe/SignSucceed_Xiaoheihe.png",
+        "roi": [
+            280,
+            513,
+            159,
+            158
+        ],
+        "action": "Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=正常&msg=小黑盒签到成功",
+        "next": ["stopXiaoheihe"]
+    },
+    "Xiaoheihe-result_failed": {
+        "pre_delay": 0,
+        "post_delay": 0,         
+        "action": "Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=异常&msg=小黑盒未确认到成功",
+        "next": ["stopXiaoheihe"]
+    }
+}

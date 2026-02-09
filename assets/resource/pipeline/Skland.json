@@ -1,111 +1,243 @@
 {
-    "entry_signSkland": {
-        "next": [
-            "IgnoreUpdates",
-            "EnterArknightsPage",
-            "EnterSignInBenefitsPage",
-            "SignInBenefitsPageFlag"
-        ],
-        "interrupt": "StartSkland"
+  "$__mpe_config_SKland": {
+    "$__mpe_code": {
+      "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Skland.json",
+      "filename": "SKland",
+      "lastSyncTime": 1770621056175,
+      "prefix": "",
+      "savedViewport": {
+        "x": 570,
+        "y": 288,
+        "zoom": 0.58
+      },
+      "version": "v1.0.3"
+    }
+  },
+  "CloseSkland": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1974,
+        "y": 68
+      }
     },
-    "StartSkland": {
-        "action": "StartApp",
-        "package": "com.hypergryph.skland/com.hypergryph.skland.SchemeActivity"
-    },
-    "CloseSkland": {
-        "enabled": true,
-        "action": "StopApp",
+    "action": {
+      "param": {
         "package": "com.hypergryph.skland"
+      },
+      "type": "StopApp"
     },
-    "IgnoreUpdates": {
-        "recognition": "OCR",
+    "enabled": true
+  },
+  "EnterArknightsPage": {
+    "$__mpe_code": {
+      "position": {
+        "x": 547,
+        "y": -121
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "EnterSignInBenefitsPage",
+      "SignInBenefitsPageFlag",
+      "EnterArknightsPage"
+    ],
+    "recognition": {
+      "param": {
+        "green_mask": true,
+        "roi": [
+          19,
+          44,
+          503,
+          121
+        ],
+        "template": [
+          "Skland/EnterArknightsPage_0.png",
+          "Skland/EnterArknightsPage_1.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "EnterSignInBenefitsPage": {
+    "$__mpe_code": {
+      "position": {
+        "x": 811,
+        "y": 210
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "SignInBenefitsPageFlag"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          13,
+          222,
+          178,
+          376
+        ],
+        "template": "Skland/EnterSignInBenefitsPage.png"
+      },
+      "type": "FeatureMatch"
+    }
+  },
+  "IgnoreUpdates": {
+    "$__mpe_code": {
+      "position": {
+        "x": 274,
+        "y": 220
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "EnterArknightsPage"
+    ],
+    "recognition": {
+      "param": {
         "expected": "下次再说",
         "roi": [
-            260,
-            886,
-            202,
-            133
-        ],
-        "action": "Click",
-        "next": [
-            "EnterArknightsPage"
+          260,
+          886,
+          202,
+          133
         ]
+      },
+      "type": "OCR"
+    }
+  },
+  "SKland-result_SignSucceed": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1665,
+        "y": 56
+      }
     },
-    "EnterArknightsPage": {
-        "recognition": "TemplateMatch",
-        "green_mask": true,
-        "template": [
-            "Skland/EnterArknightsPage_0.png",
-            "Skland/EnterArknightsPage_1.png"
-        ],
+    "focus": {
+      "Node.Recognition.Succeeded": "【正常】森空岛签到成功"
+    },
+    "next": [
+      "CloseSkland"
+    ],
+    "post_delay": 0,
+    "recognition": {
+      "param": {
+        "template": "Skland/SignSucceed.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "Sign": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1376,
+        "y": 45
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "SKland-result_SignSucceed"
+    ],
+    "recognition": {
+      "param": {
         "roi": [
-            19,
-            44,
-            503,
-            121
+          63,
+          371,
+          649,
+          672
         ],
-        "action": "Click",
-        "next": [
-            "EnterSignInBenefitsPage",
-            "SignInBenefitsPageFlag",
-            "EnterArknightsPage"
-        ]
-    },
-    "EnterSignInBenefitsPage": {
-        "recognition": "FeatureMatch",
-        "template": "Skland/EnterSignInBenefitsPage.png",
-        "roi": [
-            13,
-            222,
-            178,
-            376
-        ],
-        "action": "Click",
-        "next": [
-            "SignInBenefitsPageFlag"
-        ]
-    },
-    "SignInBenefitsPageFlag": {
-        "recognition": "TemplateMatch",
-        "template": "Skland/SignInBenefitsPageFlag.png",
-        "roi": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "next": [
-            "Sign"
-        ]
-    },
-    "Sign": {
-        "recognition": "TemplateMatch",
         "template": "Skland/Receive.png",
+        "threshold": 0.5
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "SignInBenefitsPageFlag": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1077,
+        "y": 58
+      }
+    },
+    "next": [
+      "customTest",
+      "Sign"
+    ],
+    "recognition": {
+      "param": {
         "roi": [
-            63,
-            371,
-            649,
-            672
+          0,
+          0,
+          0,
+          0
         ],
-        "threshold": 0.5,
-        "action": "Click",
-        "next": "SKland-result_SignSucceed"
+        "template": "Skland/SignInBenefitsPageFlag.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "StartSkland": {
+    "$__mpe_code": {
+      "position": {
+        "x": 290,
+        "y": -279
+      }
     },
-    "SKland-result_SignSucceed":{
-        "recognition": {
-            "type": "TemplateMatch",
-            "param":{
-                "template": "Skland/SignSucceed.png"                
-            }
-        },
-        "post_delay": 0,
-        "action":"Custom",
-        "custom_action": "delay_focus_hook",
-        "custom_action_param": "tag=正常&msg=森空岛签到成功",
-        "next": [
-            "CloseSkland",
-            "Stop"
-        ]
+    "action": {
+      "param": {
+        "package": "com.hypergryph.skland/com.hypergryph.skland.SchemeActivity"
+      },
+      "type": "StartApp"
+    }
+  },
+  "customTest": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1376,
+        "y": 288
+      }
     },
-    "Stop": {}
+    "action": {
+      "param": {
+        "custom_action": "my_action_111"
+      },
+      "type": "Custom"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "catchme"
+    }
+  },
+  "entry_signSkland": {
+    "$__mpe_code": {
+      "position": {
+        "x": 0,
+        "y": 49
+      }
+    },
+    "focus": {
+      "Node.Action.Starting": "任务开始-森空岛"
+    },
+    "next": [
+      "IgnoreUpdates",
+      "EnterArknightsPage",
+      "EnterSignInBenefitsPage",
+      "SignInBenefitsPageFlag",
+      {
+        "jump_back": true,
+        "name": "StartSkland"
+      }
+    ]
+  }
 }

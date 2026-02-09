@@ -1,0 +1,164 @@
+{
+    "entry_signP5XW": {
+        "next": [
+            "Wechat-enterMessagePage",
+            "[JumpBack]Wechat-clickBack",
+            "[JumpBack]startWechat"
+        ]
+    },
+    "Wechat-enterMessagePage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "微信",
+                "roi": [
+                    5,
+                    1465,
+                    168,
+                    136
+                ]
+            }
+        },
+        "action": "Click",
+        "next": ["Wechat-enterFloatWindow"],
+        "post_delay": 1000
+    },
+    "Wechat-enterFloatWindow": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/entrance_FloatWindow.png",
+                "roi": [
+                    25,
+                    92,
+                    45,
+                    45
+                ]
+            }
+        },
+        "action": "Click",
+        "next": ["P5XW-enterSignPage"],
+        "post_delay": 1000
+    },
+    "Wechat-clickBack": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/buttonBack.png",
+                "roi": [
+                    0,
+                    38,
+                    127,
+                    139
+                ]
+            }
+        },
+        "action": "Click"
+    },
+    "Wechat-closeWindow": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/buttonCloseWindow.png",
+                "roi": [
+                    0,
+                    36,
+                    138,
+                    142
+                ]
+            }
+        },
+        "action": "Click",
+        "next": ["Wechat-swipeLeft"],
+        "post_delay": 1000
+    },
+    "Wechat-swipeLeft": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    652,
+                    733,
+                    1,
+                    1
+                ],
+                "end": [
+                    103,
+                    735,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": ["FullScreen-swipeUp"]
+    },
+    "P5XW-enterSignPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": ["女神异闻录","wanmei"],
+                "roi": [
+                    7,
+                    512,
+                    249,
+                    152
+                ]
+            }
+        },
+        "action": "Click",
+        "next": ["P5XW-sign"],
+        "post_delay": 2000, //进入签到页面后等待页面自己刷新一次
+        "on_error": ["P5XW-result_failed"]
+    },
+    "P5XW-sign": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/P5XW-buttonSign.png",
+                "roi": [
+                    21,
+                    645,
+                    680,
+                    360
+                ]
+            }
+        },
+        "action": "Click",
+        "next": ["P5XW-result_SignSucceed"],
+        "on_error": ["P5XW-result_failed"]
+    },
+    "P5XW-result_SignSucceed": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/P5XW-signSucceed.png",
+                "roi": [
+                    7,
+                    316,
+                    293,
+                    207
+                ]
+            }
+        },
+        "action": "Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=正常&msg=P5XW签到成功",
+        "next": ["Wechat-closeWindow"]
+    },
+    "P5XW-result_failed": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "action": "Custom",
+        "custom_action": "delay_focus_hook",
+        "custom_action_param": "tag=异常&msg=P5XW签到失败",
+        "next": ["Wechat-closeWindow"]
+    },
+    "startWechat": {
+        "action": "StartApp",
+        "package": "com.tencent.mm"
+    },
+    "stopWechat": {
+        "action": "StopApp",
+        "package": "com.tencent.mm"
+    }
+}

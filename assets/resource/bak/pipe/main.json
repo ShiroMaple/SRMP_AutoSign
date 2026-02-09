@@ -1,11 +1,5 @@
 {
     "entry_signMain": {},
-    "entryApp": {
-        "action": "StartApp"
-    },
-    "exitApp": {
-        "action": "StopApp"
-    },
     "skipAD_UpperRightCorner": {
         "recognition": {
             "type": "OCR",
@@ -100,11 +94,11 @@
         },
         "post_delay": 1000
     },
-    "Global-jump":{
-        "action": "DoNothing"        
+    "Global-jump": {
+        "action": "DoNothing"
     },
-    "Global-handleError":{
+    "Global-handleError": {
         "action": "Custom",
-        "custom_action": "HandleError"        
+        "custom_action": "HandleError"
     }
 }
