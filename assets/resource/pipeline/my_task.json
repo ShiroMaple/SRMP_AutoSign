@@ -1,59 +1,5 @@
 {
-  "$__mpe_config_my_task.json": {
-    "$__mpe_code": {
-      "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\my_task.json",
-      "filename": "my_task.json",
-      "lastSyncTime": 1767681959901,
-      "prefix": "",
-      "savedViewport": {
-        "x": 605,
-        "y": 227,
-        "zoom": 1
-      },
-      "version": "v0.14.2"
-    }
-  },
   "MyTask1": {
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 0
-      }
-    },
-    "action": {
-      "param": {
-        "target_offset": [
-          0,
-          -20,
-          0,
-          0
-        ]
-      },
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Action.Succeeded": "点击成功"
-    },
-    "next": [
-      "新建节点1",
-      "MyTask1"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "设置"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "MyTask4": {
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 279
-      }
-    },
     "action": {
       "param": {
         "custom_action": "my_action_111"
@@ -61,33 +7,7 @@
       "type": "Custom"
     },
     "recognition": {
-      "param": {
-        "custom_recognition": "my_reco_222"
-      },
-      "type": "Custom"
-    }
-  },
-  "新建节点1": {
-    "$__mpe_code": {
-      "position": {
-        "x": 300,
-        "y": 1
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
-    "focus": {
-      "Node.Recognition.Succeeded": "成功"
-    },
-    "recognition": {
-      "param": {
-        "expected": [
-          "白枫"
-        ]
-      },
-      "type": "OCR"
+      "type": "DirectHit"
     }
   }
 }

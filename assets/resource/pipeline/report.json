@@ -1,0 +1,13 @@
+{
+    "entry_send_report": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "send_report"
+            }
+        },
+        "recognition": {
+            "type": "DirectHit"
+        }
+    }
+}
