@@ -65,6 +65,14 @@
         {
             "name": "森空岛",
             "entry": "entry_signSkland"
+        },
+        {
+            "name": "测试应用",
+            "entry": "TestDemo_Entry"
+        },
+        {
+            "name": "发送报告",
+            "entry": "FinalReport"
         }
     ]
 }

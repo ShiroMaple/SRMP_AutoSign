@@ -452,3 +452,6 @@ tools/ImageCropper/**/*.png
 
 config
 debug
+
+#personal config
+assets/config/serverchan.json

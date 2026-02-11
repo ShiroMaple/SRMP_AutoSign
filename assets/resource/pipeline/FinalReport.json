@@ -1,0 +1,25 @@
+{
+    "FinalReport": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "send_report",
+                "custom_action_param": {
+                    "extra_content": "✅ 流程验证通过 | 参数驱动设计 | 高内聚模块",
+                    "debug_mode": true,
+                    "test_array": [
+                        "item1",
+                        "item2",
+                        42
+                    ],
+                    "nested": {
+                        "key": "value"
+                    }
+                }
+            }
+        }
+    }
+}

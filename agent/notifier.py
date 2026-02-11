@@ -1,23 +1,25 @@
-# notifier.py
-import requests
-#from config import SERVERCHAN_SENDKEY
+# agent/notifier.py
+from config_loader import load_config
+from serverchan_sdk import sc_send
 
-#serverchan params
-sendkey = "sctp2102ta-lbduuk43fh2pz462ln61oko4"
-title = "SRMP_AutoSign"
-options = {"tags": "MaaFw"}
-
-def send_to_serverchan(title: str, content: str):
-    if not SERVERCHAN_SENDKEY or SERVERCHAN_SENDKEY == "your_send_key_here":
-        print("[!] 未配置 Server酱3 SendKey，跳过推送")
-        return
-    url = f"https://sctapi.ftqq.com/{SERVERCHAN_SENDKEY}.send"
-    data = {"title": title, "desp": content}
+def send_to_serverchan(title: str, desp: str):
+    options = {"tags": "MaaFw"}
+    config = load_config("serverchan.json")
+    sendkey = config.get("sendkey", "").strip()
+    
+    if not sendkey or sendkey == "your_send_key_here":
+        print("[!] 未配置有效的 ServerChan3 SendKey，跳过推送")
+        return False
+    
     try:
-        resp = requests.post(url, data=data, timeout=10)
+        resp = sc_send(sendkey, title, desp, options)
         if resp.status_code == 200:
             print("[✓] ServerChan推送成功")
+            return True
         else:
             print(f"[✗] ServerChan推送失败: {resp.text}")
+            return False
     except Exception as e:
         print(f"[✗] ServerChan推送异常: {e}")
+        return False
+    

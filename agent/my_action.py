@@ -1,15 +1,12 @@
+# agent/my_action.py
 from maa.agent.agent_server import AgentServer
 from maa.custom_action import CustomAction
 from maa.context import Context
-from datetime import datetime
 
 # ==============================================================================
 # 全局配置/常量定义
 # ==============================================================================
-#serverchan params
-sendkey = "sctp2102ta-lbduuk43fh2pz462ln61oko4"
-title = "SRMP_AutoSign"
-options = {"tags": "MaaFw"}
+
 # ==============================================================================
 # 工具函数（通用辅助功能）
 # ==============================================================================

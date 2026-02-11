@@ -5,7 +5,8 @@ from maa.toolkit import Toolkit
 
 import my_action
 import my_reco
-
+import task_manager   # check_and_skip + update_task_status
+import report_manager # extract_content + send_report
 
 def main():
     Toolkit.init_option("./")
