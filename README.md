@@ -13,12 +13,11 @@
 
 ## 🔗 关键文档参考
 
-- 官方 GitHub：<https://github.com/MaaXYZ/MaaFramework>  
-- 中文文档：<https://maafw.com/docs/1.1-QuickStarted>  
-- Agent 自定义动作：<https://maafw.com/docs/3.2-AgentCustomAction>  
+- 中文文档：<https://maafw.com/docs/1.1-QuickStarted>
 - 回调协议：<https://maafw.com/docs/2.3-CallbackProtocol>  
+- Agent 自定义动作：<https://maafw.com/docs/3.2-AgentCustomAction>  
 - DeepWiki: <https://deepwiki.com/MaaXYZ/MaaFramework>
-- Server酱3 推送文档：<https://doc.sc3.ft07.com/zh/serverchan3>  
+- Server酱3 ：<https://doc.sc3.ft07.com/zh/serverchan3>  
 
 ## 📌 一、项目全景概览
 
@@ -363,5 +362,6 @@ python agent/main.py 41e0a7de-8835-481a-9fa7-34d7965e635c
 
 本项目由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！
 
-感谢以下开发者对本项目作出的贡献（下面链接改成你自己的项目地址）:
-[![Contributors](https://contrib.rocks/image?repo=MaaXYZ/MaaFramework&max=1000)](https://github.com/ShiroMaple/SRMP_AutoSign/graphs/contributors)
+感谢以下开发者对本项目作出的贡献:
+[![Contributors](https://contrib.rocks/image?repo=ShiroMaple/SRMP_AutoSign&max=1000)](https://github.com/ShiroMaple/SRMP_AutoSign/graphs/contributors)
+
