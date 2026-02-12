@@ -1,0 +1,70 @@
+{
+    "swipeUp": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    353,
+                    1227,
+                    1,
+                    1
+                ],
+                "end": [
+                    353,
+                    823,
+                    1,
+                    1
+                ],
+                "duration": 500
+            }
+        },
+        "post_wait_freezes": 1000
+    },
+    "fullScreen_swipeUp": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    353,
+                    1581,
+                    1,
+                    1
+                ],
+                "end": [
+                    353,
+                    1159,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "fullScreen_swipeBack": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    718,
+                    1137,
+                    1,
+                    1
+                ],
+                "end": [
+                    600,
+                    1137,
+                    1,
+                    1
+                ],
+                "duration": 500
+            }
+        },
+        "post_delay": 1000
+    },
+    "Global_jump": {
+        "action": "DoNothing"
+    },
+    "Global_handleError": {
+        "action": "Custom",
+        "custom_action": "HandleError"
+    }
+}

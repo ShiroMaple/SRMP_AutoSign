@@ -21,10 +21,11 @@ class GlobalTaskManager:
             "success": success,
             "timestamp": datetime.now().isoformat()
         }
-        #print(f"[📊] 记录任务结果: {task_name} -> {'✅' if success else '❌'}")
+        print(f"[📊] 记录任务结果: {task_name} -> {'✅' if success else '❌'}")
     
     def generate_final_report(self) -> str:
         """生成最终全局报告"""
+        print("正在生成全局报告...")
         total = len(self.task_results)
         success_count = sum(1 for r in self.task_results.values() if r["success"])
         
@@ -41,18 +42,18 @@ class GlobalTaskManager:
             status = "✅" if result["success"] else "❌"
             report_lines.append(f"\n• {task_name}: {status}")
         
-        return "\n".join(report_lines)
+        return "\n".join(report_lines)        
     
     def send_final_report(self):
-        """发送最终报告到 ServerChan"""
+        """发送报告到 ServerChan"""
         from notifier import send_to_serverchan
         
         report = self.generate_final_report()
-        success = send_to_serverchan("📦 MaaFramework 全局任务完成", report)
+        print(report)
+        success = send_to_serverchan("📦 SRMP_AutoSign 执行完成", report)
         
         if success:
-            #print("[📤] 全局报告已成功发送到 ServerChan")
-            True
+            print("[📤] 全局报告已成功发送到 ServerChan")            
         else:
             print("[⚠️] 全局报告发送失败")
         

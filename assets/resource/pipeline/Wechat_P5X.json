@@ -1,0 +1,169 @@
+{
+    "WeChat_P5XW": {
+        "next": [
+            "Wechat_enterMessagePage",
+            "[JumpBack]Wechat_clickBack",
+            "[JumpBack]startWechat"
+        ]
+    },
+    "Wechat_enterMessagePage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "微信",
+                "roi": [
+                    5,
+                    1465,
+                    168,
+                    136
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Wechat_enterFloatWindow"
+        ],
+        "post_delay": 1000
+    },
+    "Wechat_enterFloatWindow": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/entrance_FloatWindow.png",
+                "roi": [
+                    25,
+                    92,
+                    45,
+                    45
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "P5XW_enterSignPage"
+        ],
+        "post_delay": 1000
+    },
+    "Wechat_clickBack": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/buttonBack.png",
+                "roi": [
+                    0,
+                    38,
+                    127,
+                    139
+                ]
+            }
+        },
+        "action": "Click"
+    },
+    "Wechat_closeWindow": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/buttonCloseWindow.png",
+                "roi": [
+                    0,
+                    36,
+                    138,
+                    142
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Wechat_swipeLeft"
+        ],
+        "post_delay": 1000
+    },
+    "Wechat_swipeLeft": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    652,
+                    733,
+                    1,
+                    1
+                ],
+                "end": [
+                    103,
+                    735,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "fullScreen_swipeUp"
+        ]
+    },
+    "P5XW_enterSignPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "女神异闻录",
+                    "wanmei"
+                ],
+                "roi": [
+                    7,
+                    512,
+                    249,
+                    152
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "P5XW_sign"
+        ],
+        "post_delay": 2000 //进入签到页面后等待页面自己刷新一次
+    },
+    "P5XW_sign": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/P5XW-buttonSign.png",
+                "roi": [
+                    21,
+                    645,
+                    680,
+                    360
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "P5XW_result_SignSucceed"
+        ]
+    },
+    "P5XW_result_SignSucceed": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Wechat/P5XW-signSucceed.png",
+                "roi": [
+                    7,
+                    316,
+                    293,
+                    207
+                ]
+            }
+        },
+        "action": "DoNothing",
+        "next": [
+            "Wechat_closeWindow"
+        ]
+    },
+    "startWechat": {
+        "action": "StartApp",
+        "package": "com.tencent.mm"
+    },
+    "stopWechat": {
+        "action": "StopApp",
+        "package": "com.tencent.mm"
+    }
+}

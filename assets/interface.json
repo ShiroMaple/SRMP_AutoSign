@@ -60,8 +60,12 @@
     },
     "task": [
         {
-            "name": "普通任务",
-            "entry": "MyTask1"
+            "name": "微信P5X",
+            "entry": "WeChat_P5XW"
+        },
+        {
+            "name": "小黑盒",
+            "entry": "Xiaoheihe"
         },
         {
             "name": "森空岛",

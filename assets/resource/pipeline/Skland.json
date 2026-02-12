@@ -1,16 +1,16 @@
 {
-  "$__mpe_config_SKland": {
+  "$__mpe_config_SKkland": {
     "$__mpe_code": {
       "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Skland.json",
-      "filename": "SKland",
-      "lastSyncTime": 1770685348287,
+      "filename": "SKkland",
+      "lastSyncTime": 1770685329760,
       "prefix": "",
       "savedViewport": {
-        "x": 497,
-        "y": 292,
-        "zoom": 0.58
+        "x": 75,
+        "y": 262,
+        "zoom": 1
       },
-      "version": "v1.0.3"
+      "version": "v1.1.1"
     }
   },
   "CloseSkland": {
@@ -169,6 +169,7 @@
       }
     },
     "next": [
+      "customTest",
       "Sign"
     ],
     "recognition": {
@@ -198,15 +199,29 @@
       "type": "StartApp"
     }
   },
+  "customTest": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1376,
+        "y": 288
+      }
+    },
+    "action": {
+      "param": {
+        "custom_action": "my_action_111"
+      },
+      "type": "Custom"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "catchme"
+    }
+  },
   "entry_signSkland": {
     "$__mpe_code": {
       "position": {
         "x": 0,
         "y": 49
       }
-    },
-    "focus": {
-      "Node.Action.Starting": "任务开始-森空岛"
     },
     "next": [
       "IgnoreUpdates",

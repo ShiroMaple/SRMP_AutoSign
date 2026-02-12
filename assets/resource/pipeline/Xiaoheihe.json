@@ -1,0 +1,118 @@
+{
+  "$__mpe_config_Xiaoheihe": {
+    "$__mpe_code": {
+      "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Xiaoheihe.json",
+      "filename": "Xiaoheihe",
+      "lastSyncTime": 1770886033462,
+      "prefix": "",
+      "savedViewport": {
+        "x": 209,
+        "y": 115,
+        "zoom": 1.15
+      },
+      "version": "v1.1.1"
+    }
+  },
+  "$__mpe_external_Xiaoheihe-result_SignSucceed_Xiaoheihe": {
+    "$__mpe_code": {
+      "position": {
+        "x": 305,
+        "y": 235
+      }
+    }
+  },
+  "Xiaoheihe": {
+    "$__mpe_code": {
+      "position": {
+        "x": 0,
+        "y": 44
+      }
+    },
+    "next": [
+      "enterXiaoheihe",
+      "Xiaoheihe-result_SignSucceed",
+      {
+        "jump_back": true,
+        "name": "startXiaoheihe"
+      }
+    ]
+  },
+  "Xiaoheihe_SignSucceed": {
+    "$__mpe_code": {
+      "position": {
+        "x": 600,
+        "y": 5
+      }
+    },
+    "next": [
+      "stopXiaoheihe"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          280,
+          513,
+          159,
+          158
+        ],
+        "template": [
+          "Xiaoheihe/SignSucceed_Xiaoheihe.png",
+          "Xiaoheihe/SignSucceed2_Xiaoheihe.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "enterXiaoheihe": {
+    "$__mpe_code": {
+      "position": {
+        "x": 300,
+        "y": 12
+      }
+    },
+    "next": [
+      "Xiaoheihe_SignSucceed"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          19,
+          1471,
+          101,
+          92
+        ],
+        "template": "Xiaoheihe/enterXiaoheihe.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "startXiaoheihe": {
+    "$__mpe_code": {
+      "position": {
+        "x": 300,
+        "y": 349
+      }
+    },
+    "action": {
+      "param": {
+        "package": "com.max.xiaoheihe"
+      },
+      "type": "StartApp"
+    }
+  },
+  "stopXiaoheihe": {
+    "$__mpe_code": {
+      "position": {
+        "x": 900,
+        "y": 0
+      }
+    },
+    "action": {
+      "param": {
+        "package": "com.max.xiaoheihe"
+      },
+      "type": "StopApp"
+    },
+    "enabled": true
+  }
+}
