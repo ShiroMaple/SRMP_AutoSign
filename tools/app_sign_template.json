@@ -1,0 +1,110 @@
+{
+    "{{APP_NAME}}_SignIn": {
+        "next": [
+            "{{APP_NAME}}_CheckAlreadySigned"
+        ],
+        "focus": {
+            "Node.PipelineNode.Starting": "⏳ 开始 {{APP_DISPLAY_NAME}} 签到流程"
+        }
+    },
+    "{{APP_NAME}}_CheckAlreadySigned": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": {
+                    {ROI_ALREADY_SIGNED
+                    }
+                },
+                "expected": "{{ALREADY_SIGNED_TEXT}}"
+            }
+        },
+        "action": "StopTask",
+        "focus": {
+            "Node.Recognition.Succeeded": "✅ {{APP_DISPLAY_NAME}} 今日已签到，跳过"
+        },
+        "on_error": [
+            "{{APP_NAME}}_LocateSignButton"
+        ]
+    },
+    "{{APP_NAME}}_LocateSignButton": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "{{APP_NAME}}_SignButton",
+                "threshold": 0.85,
+                "method": "ccoeff_normed"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "target": "self"
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "🎯 检测到 {{APP_DISPLAY_NAME}} 签到按钮，准备点击",
+            "Node.Action.Succeeded": "✅ {{APP_DISPLAY_NAME}} 签到操作成功"
+        },
+        "on_error": [
+            "{{APP_NAME}}_HandleError"
+        ],
+        "next": [
+            "{{APP_NAME}}_VerifySuccess"
+        ]
+    },
+    "{{APP_NAME}}_VerifySuccess": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": {
+                    {ROI_SUCCESS_INDICATOR
+                    }
+                },
+                "expected": "{{SUCCESS_KEYWORD}}"
+            }
+        },
+        "action": "DoNothing",
+        "focus": {
+            "Node.Recognition.Succeeded": "✨ {{APP_DISPLAY_NAME}} 签到验证成功",
+            "Node.Recognition.Failed": "⚠️ 未检测到成功提示，但操作已完成"
+        },
+        "next": [
+            "{{APP_NAME}}_ExtractRewards"
+        ]
+    },
+    "{{APP_NAME}}_ExtractRewards": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": {
+                    {ROI_REWARD_AREA
+                    }
+                },
+                "expected": ".*[星琼|合成玉|原石|信用点|体力].*"
+            }
+        },
+        "action": "DoNothing",
+        "focus": {
+            "Node.Recognition.Succeeded": "🎁 extract:reward - 检测到签到奖励: {result}",
+            "Node.Recognition.Failed": "📦 未识别到具体奖励内容"
+        },
+        "next": []
+    },
+    "{{APP_NAME}}_HandleError": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "error_handler",
+                "custom_action_param": {
+                    "error_type": "sign_button_not_found",
+                    "app_name": "{{APP_DISPLAY_NAME}}"
+                }
+            }
+        },
+        "focus": {
+            "Node.Action.Starting": "❌ {{APP_DISPLAY_NAME}} 签到失败: 按钮未找到或界面异常"
+        },
+        "next": []
+    }
+}

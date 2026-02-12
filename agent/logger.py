@@ -94,30 +94,11 @@ class SignInLogger:
             _save_log(self._cache)    
 
     def get_summary(self) -> str:
-        """增强版摘要，包含额外内容"""
-        with LOCK:
-            self._ensure_cache()
-            tasks = self._cache["tasks"]
-            total = len(tasks)
-            success = sum(1 for t in tasks.values() if t.get("status") == "success")
-            failed = total - success
-            
-            summary = f"📅 {self._cache['date']} 自动签到报告\n✅ 成功: {success}\n❌ 失败: {failed}\n"
-            
-            # 添加兑换码等内容
-            has_contents = False
-            for app_name, task in tasks.items():
-                contents = task.get("contents", [])
-                if contents:
-                    if not has_contents:
-                        summary += "\n🎁 特别内容:\n"
-                        has_contents = True
-                    summary += f"\n{app_name}:\n"
-                    for item in contents:
-                        summary += f"  • [{item['type']}] {item['content']}\n"
-            
-            if failed > 0:
-                failed_names = [name for name, t in tasks.items() if t.get("status") == "failed"]
-                summary += f"\n⚠️ 失败应用: {', '.join(failed_names)}"
-            
-            return summary.strip()
+        """获取任务摘要字符串"""
+        tasks = self._cache.get("tasks", {})
+        lines = []
+        for name, info in tasks.items():
+            status = "✅" if info.get("status") == "success" else "❌"
+            last_run = info.get("last_run", "未知")
+            lines.append(f"• {name}: {status} ({last_run})")
+        return "\n".join(lines)

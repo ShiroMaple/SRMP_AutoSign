@@ -1,0 +1,19 @@
+{
+    "DemoTask": {
+        "next": [
+            "Step1",
+            "Step2"
+        ]
+    },
+    "Step1": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "Step2"
+        ]
+    },
+    "Step2": {
+        "recognition": "DirectHit",
+        "action": "DoNothing"
+    }
+}

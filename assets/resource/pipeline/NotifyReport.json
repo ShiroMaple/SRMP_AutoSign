@@ -1,0 +1,13 @@
+{
+    "NotifyReport": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "focus": {
+            "Node.PipelineNode.Starting": "📤 正在发送全局报告..."
+        }
+    }
+}

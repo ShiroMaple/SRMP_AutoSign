@@ -122,9 +122,6 @@
         "y": 56
       }
     },
-    "focus": {
-      "Node.Recognition.Succeeded": "【正常】森空岛签到成功"
-    },
     "next": [
       "CloseSkland"
     ],
@@ -172,7 +169,6 @@
       }
     },
     "next": [
-      "customTest",
       "Sign"
     ],
     "recognition": {
@@ -200,23 +196,6 @@
         "package": "com.hypergryph.skland/com.hypergryph.skland.SchemeActivity"
       },
       "type": "StartApp"
-    }
-  },
-  "customTest": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1376,
-        "y": 288
-      }
-    },
-    "action": {
-      "param": {
-        "custom_action": "my_action_111"
-      },
-      "type": "Custom"
-    },
-    "focus": {
-      "Node.Action.Succeeded": "catchme"
     }
   },
   "entry_signSkland": {

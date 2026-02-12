@@ -1,28 +1,26 @@
-
 ```
 SRMP_AutoSign
 ├─ .prettierrc
 ├─ agent
-│  ├─ check_action.py
 │  ├─ logger.py
 │  ├─ main.py
 │  ├─ my_action.py
 │  ├─ my_reco.py
 │  ├─ notifier.py
-│  ├─ report.py
-│  └─ sign.py
+│  ├─ sinks.py
+│  └─ task_manager.py
 ├─ assets
 │  ├─ interface.json
 │  ├─ MaaCommonAssets
 │  └─ resource
-│     ├─ migrate_pipeline_v5.py
 │     ├─ model
 │     │  └─ ocr
 │     │     ├─ keys.txt
 │     │     └─ README.md
 │     └─ pipeline
+│        ├─ DemoTask.json
 │        ├─ my_task.json
-│        ├─ report.json
+│        ├─ NotifyReport.json
 │        └─ Skland.json
 ├─ check_resource.py
 ├─ CLAUDE.md
@@ -31,11 +29,16 @@ SRMP_AutoSign
 │  ├─ .markdownlint.yaml
 │  └─ zh_cn
 │     └─ 个性化配置.md
+├─ How to work with MaaFw.md
 ├─ LICENSE
 ├─ package-lock.json
 ├─ package.json
 ├─ README.md
-└─ tools
-   └─ requirements.txt
+├─ tools
+│  ├─ app_sign_template.json
+│  ├─ app_sign_template.md
+│  ├─ migrate_pipeline_v5.py
+│  └─ requirements.txt
+└─ tree.md
 
 ```
