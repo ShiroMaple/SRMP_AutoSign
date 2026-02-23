@@ -1,0 +1,371 @@
+{
+    "WeiboST": {
+        "next": [
+            "Weibo-locateRedeemCode",
+            "进入超话页面",
+            "谢绝评分",
+            "[JumpBack]微博点击返回",
+            "[JumpBack]启动微博"
+        ]
+    },
+    "Weibo-测试": {
+        "next": [
+            "微博-超话自动点赞",
+            "[JumpBack]Weibo-swipeUp"
+        ]
+    },
+    "微博点击返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Weibo/buttonBack1.png",
+                    "Weibo/buttonBack2.png"
+                ],
+                "roi": [
+                    6,
+                    72,
+                    75,
+                    75
+                ],
+                "green_mask": true,
+                "threshold": [
+                    0.7,
+                    0.5
+                ]
+            }
+        },
+        "action": "Click",
+        "post_delay": 1500
+    },
+    "谢绝评分": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "不了",
+                "roi": [
+                    222,
+                    758,
+                    174,
+                    159
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "进入超话页面",
+            "[JumpBack]微博点击返回"
+        ]
+    },
+    "进入超话页面": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Weibo/iconST1.png",
+                    "Weibo/iconST2.png"
+                ],
+                "roi": [
+                    164,
+                    1474,
+                    113,
+                    96
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    219,
+                    1519,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 3000,
+        "next": [
+            "进入超话签到页面",
+            "[JumpBack]微博点击返回"
+        ]
+    },
+    "进入超话签到页面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "一键签到",
+                    "签到",
+                    "查看全部"
+                ],
+                "roi": [
+                    551,
+                    235,
+                    169,
+                    68
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "位于超话签到页面",
+            "进入超话签到页面"
+        ]
+    },
+    "位于超话签到页面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "7级及以上的超话",
+                    "常用超话"
+                ],
+                "roi": [
+                    8,
+                    122,
+                    314,
+                    446
+                ]
+            }
+        },
+        "next": [
+            "Weibo-检测超话签到按钮",
+            "Weibo-检测超话签到完成",
+            "[JumpBack]微博上滑"
+        ],
+        "on_error": [
+            "退出微博"
+        ]
+    },
+    "Weibo-检测超话签到按钮": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Weibo/buttonSign.png",
+                "roi": [
+                    544,
+                    138,
+                    166,
+                    1425
+                ]
+            }
+        },
+        "next": [
+            "Weibo-进入某个超话"
+        ]
+    },
+    "Weibo-进入某个超话": {
+        "action": "Click",
+        "target": "Weibo-检测超话签到按钮",
+        "post_delay": 1500,
+        "next": [
+            "Weibo-detectPresent",
+            "位于超话签到页面",
+            "[JumpBack]微博点击返回"
+        ]
+    },
+    "Weibo-detectPresent": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "可领"
+                ],
+                "roi": [
+                    64,
+                    600,
+                    645,
+                    159
+                ]
+            }
+        },
+        "action": "Click",
+        "target_offset": [
+            -30,
+            45,
+            0,
+            0
+        ],
+        "next": [
+            "Weibo-locateRedeemCode"
+        ]
+    },
+    "Weibo-locateRedeemCode": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "兑换码：",
+                "roi": [
+                    147,
+                    814,
+                    193,
+                    135
+                ]
+            }
+        },
+        "next": [
+            "Weibo-recoGameName"
+        ]
+    },
+    "Weibo-recoGameName": { //识别获取该礼包的游戏名
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "",
+                "roi": [
+                    202,
+                    197,
+                    136,
+                    92
+                ]
+            }
+        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "Weibo-recoRedeemCode"
+        ]
+    },
+    "Weibo-recoRedeemCode": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "",
+                "only_rec": true,
+                "roi": "Weibo-locateRedeemCode", //因为使用前面节点的坐标，所以测试时要从"Weibo-locateRedeemCode开始不能直接跳到这一个
+                "roi_offset": [
+                    80,
+                    -10,
+                    75,
+                    15
+                ]
+            }
+        },
+        "action": "Custom",
+        "custom_action": "sendRedeemCode",
+        "custom_action_param": {
+            "pattern": "Weibo-recoGameName"
+        },
+        "next": [
+            "位于超话签到页面",
+            "[JumpBack]fullScreen_swipeBack"
+        ]
+    },
+    "微博上滑": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    358,
+                    475,
+                    1,
+                    1
+                ],
+                "end": [
+                    360,
+                    126,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "Weibo-检测超话签到完成": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Weibo/buttonAlreadySign.png",
+                "roi": [
+                    544,
+                    138,
+                    166,
+                    1425
+                ],
+                "threshold": 0.5,
+                "index": 4
+            }
+        },
+        "action": "DoNothing",
+        "focus": {
+            "Node.Recognition.Succeeded": "微博签到成功",
+            "Node.Recognition.Failed": "微博签到异常"
+        },
+        "next": [
+            "退出微博"
+        ]
+    },
+    "微博-超话自动点赞": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Weibo/buttonLikeIt.png",
+                "roi": [
+                    531,
+                    228,
+                    61,
+                    1230
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": "Click",
+        //"post_wait_freezes": 300,
+        "next": [
+            "微博-超话自动点赞",
+            "[JumpBack]Weibo-swipeUp"
+        ]
+    },
+    "Weibo-swipeUp": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    353,
+                    1227,
+                    1,
+                    1
+                ],
+                "end": [
+                    353,
+                    823,
+                    1,
+                    1
+                ],
+                "duration": 600
+            }
+        },
+        "post_wait_freezes": 600
+    },
+    "启动微博": {
+        "action": "StartApp",
+        "package": "com.sina.weibo"
+    },
+    "退出微博": {
+        "action": "StopApp",
+        "package": "com.sina.weibo"
+    },
+    "Weibo-cancelCheckbox": { //既然不然从剪贴板里直接获取，那就不使用复制按钮也就不需要这一步了
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Weibo/checkboxChecked.png",
+                "roi": [
+                    202,
+                    939,
+                    134,
+                    135
+                ]
+            }
+        },
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "Weibo-cancelCheckbox",
+            "Weibo-locateRedeemCode"
+        ]
+    }
+}

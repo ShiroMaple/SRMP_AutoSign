@@ -1,0 +1,224 @@
+{
+    "Fliggy": {
+        "next": [
+            "Fliggy-confirmApp",
+            "[JumpBack]startFliggy"
+        ]
+    },
+    "Fliggy-confirmApp": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Fliggy/iconMainPageChosen.png",
+                    "Fliggy/iconMainPageUnchosen.png",
+                    "Fliggy/iconMainPageChosen2.png",
+                    "Fliggy/iconMainPageUnchosen2.png"
+                ],
+                "roi": [
+                    0,
+                    1431,
+                    194,
+                    170
+                ]
+            }
+        },
+        "next": [
+            "Fliggy-enterSignPage",
+            "Fliggy-enterMainPage",
+            "[JumpBack]Fliggy-closePopWindow"
+        ]
+    },
+    "Fliggy-closePopWindow": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Fliggy/buttonClosePopWindow1.png",
+                    "Fliggy/buttonClosePopWindow2.png"
+                ],
+                "roi": [
+                    275,
+                    1000,
+                    166,
+                    335
+                ],
+                "green_mask": true
+            }
+        },
+        "action": "Click"
+    },
+    "Fliggy-enterMainPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "首页",
+                "roi": [
+                    14,
+                    1489,
+                    151,
+                    112
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Fliggy-enterSignPage",
+            "[JumpBack]Fliggy-clickBack"
+        ]
+    },
+    "Fliggy-enterSignPage": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Fliggy/buttonSignPage.png",
+                "roi": [
+                    431,
+                    590,
+                    230,
+                    563
+                ]
+            }
+        },
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            "Fliggy-flagSignPage",
+            "Fliggy-enterSignPage",
+            "[JumpBack]Fliggy-closePopWindow"
+        ]
+    },
+    "Fliggy-flagSignPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "里程福利中心",
+                "roi": [
+                    202,
+                    22,
+                    308,
+                    161
+                ]
+            }
+        },
+        "next": [
+            "Fliggy-enterExtraPage",
+            "Fliggy-fetchExtraAwards",
+            "Fliggy-sign",
+            "[JumpBack]Fliggy-closePopWindow"
+        ],
+        "on_error": [
+            "Fliggy-reConfirm"
+        ]
+    },
+    "Fliggy-reConfirm": {
+        "next": [
+            "Fliggy-confirmApp",
+            "[JumpBack]Fliggy-clickBack"
+        ]
+    },
+    "Fliggy-enterExtraPage": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Fliggy/extraAward.png",
+                "roi": [
+                    136,
+                    125,
+                    450,
+                    320
+                ]
+            }
+        },
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "Fliggy-flagSignPage",
+            "[JumpBack]fullScreen_swipeBack"
+        ]
+    },
+    "Fliggy-fetchExtraAwards": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "领取里程",
+                "roi": [
+                    136,
+                    125,
+                    450,
+                    320
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Fliggy-flagSignPage"
+        ]
+    },
+    "Fliggy-sign": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "签到",
+                "roi": [
+                    149,
+                    125,
+                    423,
+                    224
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Fliggy-result_signSucceed"
+        ]
+    },
+    "Fliggy-result_signSucceed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "签到成功",
+                "roi": [
+                    0,
+                    749,
+                    396,
+                    172
+                ]
+            }
+        },
+        "action": "DoNothing",
+        "focus": {
+            "Node.Recognition.Succeeded": "{name}签到成功"
+        },
+        "next": [
+            "stopFliggy"
+        ]
+    },
+    "Fliggy-clickBack": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Fliggy/buttonBack1.png",
+                    "Fliggy/buttonBack2.png"
+                ],
+                "roi": [
+                    0,
+                    32,
+                    138,
+                    147
+                ],
+                "green_mask": true
+            }
+        },
+        "action": "Click"
+    },
+    "startFliggy": {
+        "action": "StartApp",
+        "package": "com.taobao.trip"
+    },
+    "stopFliggy": {
+        "action": "StopApp",
+        "package": "com.taobao.trip"
+    }
+}

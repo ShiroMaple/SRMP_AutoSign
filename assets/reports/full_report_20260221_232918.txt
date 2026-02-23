@@ -1,0 +1,73 @@
+{
+  "summary": "📅 执行时间: 2026-02-21 23:29:16\n🎯 总任务数: 8\n✅ 成功: 5\n❌ 失败: 3\n\n📋 详细结果:\n\n• WeChat_P5XW: ✅\n\n• Xiaoheihe: ✅\n\n• Youxia-result_SignIn: ⏳\n\n• Youxia: ✅\n\n• Wsgw-result_SignIn: ⏳\n\n• Wsgw: ✅\n\n• customTest_SignIn: ⏳\n\n• entry_signSkland: ✅",
+  "raw_data": {
+    "WeChat_P5XW": {
+      "success": true,
+      "timestamp": "2026-02-21T23:27:31.077499",
+      "focus_messages": [],
+      "extracts": {}
+    },
+    "Xiaoheihe": {
+      "success": true,
+      "timestamp": "2026-02-21T23:27:42.081433",
+      "focus_messages": [],
+      "extracts": {}
+    },
+    "Youxia-result_SignIn": {
+      "success": null,
+      "timestamp": "2026-02-21T23:28:03.549962",
+      "focus_messages": [
+        "游侠网签到成功",
+        "游侠网无抽奖"
+      ],
+      "extracts": {}
+    },
+    "Youxia": {
+      "success": true,
+      "timestamp": "2026-02-21T23:28:19.206072",
+      "focus_messages": [],
+      "extracts": {}
+    },
+    "Wsgw-result_SignIn": {
+      "success": null,
+      "timestamp": "2026-02-21T23:28:47.589719",
+      "focus_messages": [
+        "网上国网签到成功"
+      ],
+      "extracts": {}
+    },
+    "Wsgw": {
+      "success": true,
+      "timestamp": "2026-02-21T23:28:57.903517",
+      "focus_messages": [],
+      "extracts": {}
+    },
+    "customTest_SignIn": {
+      "success": null,
+      "timestamp": "2026-02-21T23:29:15.155262",
+      "focus_messages": [
+        "catchme"
+      ],
+      "extracts": {}
+    },
+    "entry_signSkland": {
+      "success": true,
+      "timestamp": "2026-02-21T23:29:15.159093",
+      "focus_messages": [],
+      "extracts": {}
+    }
+  },
+  "extracted_contents": {},
+  "focus_messages": {
+    "Youxia-result_SignIn": [
+      "游侠网签到成功",
+      "游侠网无抽奖"
+    ],
+    "Wsgw-result_SignIn": [
+      "网上国网签到成功"
+    ],
+    "customTest_SignIn": [
+      "catchme"
+    ]
+  }
+}

@@ -169,7 +169,6 @@
       }
     },
     "next": [
-      "customTest",
       "Sign"
     ],
     "recognition": {
@@ -199,24 +198,7 @@
       "type": "StartApp"
     }
   },
-  "customTest": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1376,
-        "y": 288
-      }
-    },
-    "action": {
-      "param": {
-        "custom_action": "my_action_111"
-      },
-      "type": "Custom"
-    },
-    "focus": {
-      "Node.Action.Succeeded": "catchme"
-    }
-  },
-  "entry_signSkland": {
+  "Skland": {
     "$__mpe_code": {
       "position": {
         "x": 0,

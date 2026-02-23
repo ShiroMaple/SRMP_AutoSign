@@ -1,0 +1,13 @@
+{
+  "summary": "📅 执行时间: 2026-02-19 22:27:25\n🎯 总任务数: 1\n✅ 成功: 1\n❌ 失败: 0\n\n📋 详细结果:\n\n• Youxia: ✅",
+  "raw_data": {
+    "Youxia": {
+      "success": true,
+      "timestamp": "2026-02-19T22:27:24.121897",
+      "focus_messages": [],
+      "extracts": {}
+    }
+  },
+  "extracted_contents": {},
+  "focus_messages": {}
+}

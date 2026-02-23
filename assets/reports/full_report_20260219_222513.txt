@@ -1,0 +1,6 @@
+{
+  "summary": "📅 执行时间: 2026-02-19 22:25:11\n🎯 总任务数: 0\n✅ 成功: 0\n❌ 失败: 0\n\n📋 详细结果:",
+  "raw_data": {},
+  "extracted_contents": {},
+  "focus_messages": {}
+}

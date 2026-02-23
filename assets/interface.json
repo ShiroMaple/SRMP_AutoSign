@@ -68,12 +68,76 @@
             "entry": "Xiaoheihe"
         },
         {
+            "name": "游侠网",
+            "entry": "Youxia"
+        },
+        {
+            "name": "网上国网",
+            "entry": "Wsgw"
+        },
+        {
+            "name": "天天基金",
+            "entry": "EastmoneyFund"
+        },
+        {
+            "name": "东方财富",
+            "entry": "EastmoneyBerlin"
+        },
+        {
+            "name": "亚朵",
+            "entry": "Atour"
+        },
+        {
+            "name": "携程旅行",
+            "entry": "Ctrip"
+        },
+        {
+            "name": "飞猪旅行",
+            "entry": "Fliggy"
+        },
+        {
+            "name": "飞客",
+            "entry": "Flyert"
+        },
+        {
+            "name": "华住会",
+            "entry": "Htinns"
+        },
+        {
+            "name": "米游社",
+            "entry": "Mihoyo"
+        },
+        {
             "name": "森空岛",
-            "entry": "entry_signSkland"
+            "entry": "Skland"
+        },
+        {
+            "name": "微博超话",
+            "entry": "WeiboST"
+        },
+        {
+            "name": "TapTap",
+            "entry": "TapTap"
+        },
+        {
+            "name": "一点万象",
+            "entry": "MIXC"
+        },
+        {
+            "name": "闲鱼",
+            "entry": "Idlefish"
+        },
+        {
+            "name": "京东",
+            "entry": "JingDong"
+        },
+        {
+            "name": "京东金融",
+            "entry": "JDFinance"
         },
         {
             "name": "测试应用",
-            "entry": "DemoTask"
+            "entry": "FocusTest"
         },
         {
             "name": "推送通知",

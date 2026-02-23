@@ -154,6 +154,10 @@
             }
         },
         "action": "DoNothing",
+        "focus": {
+            "Node.Recognition.Succeeded": "{name}签到成功",
+            "Node.Recognition.Failed": "{name}签到异常"
+        },
         "next": [
             "Wechat_closeWindow"
         ]

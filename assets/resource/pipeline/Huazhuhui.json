@@ -1,0 +1,155 @@
+{ //还有30天累计签到抽盲盒奖励
+    "Htinns": {
+        "next": [
+            "Htinns-confirmApp",
+            "[JumpBack]startHtinns"
+        ]
+    },
+    "Htinns-confirmApp": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "华住"
+            }
+        },
+        "next": [
+            "Hitnns-closePopWindow",
+            "Htinns-enterSignPage",
+            "Htinns-enterMainPage"
+        ]
+        //"interrupt": []
+    },
+    "Htinns-enterMainPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "首页",
+                "roi": [
+                    0,
+                    1486,
+                    152,
+                    115
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Htinns-enterSignPage"
+        ],
+        "pre_delay": 1500
+    },
+    "Htinns-enterSignPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "会员签到",
+                "roi": [
+                    20,
+                    1193,
+                    205,
+                    200
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Hitnns-closePopWindow",
+            "Htinns-sign",
+            "Htinns-enterSignPage",
+            "Hitnns-result_Signed"
+        ]
+    },
+    "Htinns-sign": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "立即签到",
+                    "签到开盲盒"
+                ],
+                "roi": [
+                    211,
+                    1114,
+                    291,
+                    168
+                ]
+            }
+        },
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "Hitnns-result_SignSucceed"
+        ]
+    },
+    "Hitnns-result_SignSucceed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "签到成功",
+                "roi": [
+                    80,
+                    320,
+                    414,
+                    210
+                ]
+            }
+        },
+        "action": "DoNothing",
+        "focus": {
+            "Node.Recognition.Succeeded": "华住会签到成功"
+        },
+        "next": [
+            "stopHtinns"
+        ]
+    },
+    "Hitnns-result_Signed": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "Htinns/flagSigned.png",
+                "roi": [
+                    57,
+                    1011,
+                    88,
+                    113
+                ]
+            }
+        },
+        "action": "DoNothing",
+        "focus": {
+            "Node.Recognition.Succeeded": "华住会今日已签"
+        },
+        "next": [
+            "stopHtinns"
+        ]
+    },
+    "Hitnns-closePopWindow": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Htinns/buttonClose1.png",
+                    "Htinns/buttonClose2.png"
+                ],
+                "roi": [
+                    288,
+                    98,
+                    143,
+                    1233
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Htinns-confirmApp"
+        ]
+    },
+    "startHtinns": {
+        "action": "StartApp",
+        "package": "com.htinns"
+    },
+    "stopHtinns": {
+        "action": "StopApp",
+        "package": "com.htinns"
+    }
+}

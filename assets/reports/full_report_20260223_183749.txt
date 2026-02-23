@@ -1,0 +1,35 @@
+{
+  "summary": "\n\n📅 执行时间: 2026-02-23 18:37:48\n\n\n🎯 总任务数: 1\n\n\n✅ 成功: 1\n\n\n❌ 失败: 0\n\n\n📋 详细结果:\n\n• FocusTest: ✅\n\n  └─ 提取内容: reward: 原石×160\n\n  └─ 关键消息: ✨ 点击成功! 奖励: extract:reward - 原石×160",
+  "raw_data": {
+    "FocusTest": {
+      "success": true,
+      "timestamp": "2026-02-23T18:37:41.103703",
+      "focus_messages": [
+        "🚀 开始 FocusTest 测试任务",
+        "🎉 FocusTest 任务成功完成!",
+        "🔍 开始识别 FocusTest_Recognition (task_id=200000012)",
+        "✅ 识别成功! ",
+        "🖱️ 准备点击 FocusTest_Action (action_id=500000026)",
+        "✨ 点击成功! 奖励: extract:reward - 原石×160"
+      ],
+      "extracts": {
+        "reward": "原石×160"
+      }
+    }
+  },
+  "extracted_contents": {
+    "FocusTest": {
+      "reward": "原石×160"
+    }
+  },
+  "focus_messages": {
+    "FocusTest": [
+      "🚀 开始 FocusTest 测试任务",
+      "🎉 FocusTest 任务成功完成!",
+      "🔍 开始识别 FocusTest_Recognition (task_id=200000012)",
+      "✅ 识别成功! ",
+      "🖱️ 准备点击 FocusTest_Action (action_id=500000026)",
+      "✨ 点击成功! 奖励: extract:reward - 原石×160"
+    ]
+  }
+}

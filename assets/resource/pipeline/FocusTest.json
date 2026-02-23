@@ -1,0 +1,40 @@
+{
+    "FocusTest": {
+        "next": [
+            "FocusTest_Recognition"
+        ],
+        "focus": {
+            "Node.PipelineNode.Starting": "🚀 开始 {name} 测试任务",
+            "Node.PipelineNode.Succeeded": "🎉 {name} 任务成功完成!"
+        }
+    },
+    "FocusTest_Recognition": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "设置",
+                "threshold": 0.8
+            }
+        },
+        "focus": {
+            "Node.Recognition.Starting": "🔍 开始识别 {name} (task_id={task_id})",
+            "Node.Recognition.Succeeded": "✅ 识别成功! ",
+            "Node.Recognition.Failed": "❌ 识别失败 (reco_id={reco_id})"
+        },
+        "next": [
+            "FocusTest_Action"
+        ]
+    },
+    "FocusTest_Action": {
+        "recognition": "DirectHit",
+        "action": {
+            "type": "Click"
+        },
+        "focus": {
+            "Node.Action.Starting": "🖱️ 准备点击 {name} (action_id={action_id})",
+            "Node.Action.Succeeded": "✨ 点击成功! 奖励: extract:reward - 原石×160",
+            "Node.Action.Failed": "⚠️ 点击失败 (node_id={node_id})"
+        },
+        "next": []
+    }
+}

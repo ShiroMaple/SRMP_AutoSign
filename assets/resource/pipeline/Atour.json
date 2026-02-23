@@ -1,0 +1,162 @@
+{
+    "Atour": {
+        "next": [
+            "Atour-confirmApp",
+            "[JumpBack]startAtour"
+        ]
+    },
+    "Atour-confirmApp": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "亚朵星球",
+                "roi": [
+                    172,
+                    1481,
+                    193,
+                    120
+                ]
+            }
+        },
+        "next": [
+            "Atour-drawedCard",
+            "Atour-signed",
+            "Atour-drawCard",
+            "Atour-sign",
+            "Atour-enterSignPage",
+            "[JumpBack]Atour-enterMainPage"
+        ]
+    },
+    "Atour-enterMainPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "首页",
+                "roi": [
+                    0,
+                    1437,
+                    179,
+                    164
+                ]
+            }
+        },
+        "action": "Click",
+        "pre_delay": 1500
+    },
+    "Atour-enterSignPage": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "签到",
+                "roi": [
+                    0,
+                    929,
+                    233,
+                    247
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Atour-signed",
+            "Atour-sign"
+        ]
+    },
+    "Atour-sign": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "立即签到",
+                "roi": [
+                    243,
+                    465,
+                    229,
+                    145
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Atour-result_signSucceed"
+        ],
+        "timeout": 5000
+    },
+    "Atour-result_signSucceed": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "action": "DoNothing",
+        "focus": {
+            "Node.Action.Succeeded": "{name}签到成功"
+        },
+        "next": [
+            "Atour-drawCard"
+        ],
+        "on_error": [
+            "stopAtour"
+        ],
+        "timeout": 5000
+    },
+    "Atour-drawCard": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "抽",
+                "roi": [
+                    270,
+                    729,
+                    181,
+                    185
+                ]
+            }
+        },
+        "action": "Click",
+        "next": [
+            "Atour-drawedCard"
+        ]
+    },
+    "Atour-signed": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "今日已签到",
+                "roi": [
+                    233,
+                    462,
+                    253,
+                    146
+                ]
+            }
+        },
+        "next": [
+            "Atour-result_signSucceed"
+        ]
+    },
+    "Atour-drawedCard": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "您获得一张",
+                "roi": [
+                    132,
+                    556,
+                    241,
+                    140
+                ]
+            }
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "{name}获得额外奖励"
+        },
+        "next": [
+            "stopAtour"
+        ]
+    },
+    "startAtour": {
+        "action": "StartApp",
+        "package": "com.atour.atourlife"
+    },
+    "stopAtour": {
+        "action": "StopApp",
+        "package": "com.atour.atourlife"
+    }
+}

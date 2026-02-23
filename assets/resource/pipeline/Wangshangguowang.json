@@ -1,0 +1,381 @@
+{
+  "$__mpe_config_Wangshangguowang": {
+    "$__mpe_code": {
+      "filePath": "D:\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Wangshangguowang.json",
+      "filename": "Wangshangguowang",
+      "lastSyncTime": 1771507765764,
+      "prefix": "",
+      "savedViewport": {
+        "x": 281,
+        "y": 290,
+        "zoom": 0.86
+      },
+      "version": "v1.1.3"
+    }
+  },
+  "$__mpe_external_fullScreen_swipeUp_Wangshangguowang": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1843,
+        "y": 267
+      }
+    }
+  },
+  "Wsgw": {
+    "$__mpe_code": {
+      "position": {
+        "x": 300,
+        "y": 69
+      }
+    },
+    "next": [
+      "Wsgw-closePopWindow",
+      "Wsgw-findSignButton1",
+      "Wsgw-enterMyPage",
+      "[JumpBack]Wsgw-ignoreWarning",
+      "[JumpBack]startWsgw"
+    ]
+  },
+  "Wsgw-checkSignPage": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1200,
+        "y": 9
+      }
+    },
+    "next": [
+      "Wsgw-checkWeekAwards",
+      "[JumpBack]Wsgw-result_SignSucceed"
+    ],
+    "on_error": [
+      "fullScreen_swipeUp"
+    ],
+    "recognition": {
+      "param": {
+        "expected": "每日签到",
+        "roi": [
+          226,
+          72,
+          272,
+          72
+        ]
+      },
+      "type": "OCR"
+    },
+    "timeout": 5000
+  },
+  "Wsgw-checkWeekAwards": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1500,
+        "y": 297
+      }
+    },
+    "action": {
+      "param": {
+        "target_offset": [
+          0,
+          70,
+          0,
+          0
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "Wsgw-无周礼包",
+      "Wsgw-result_GetWeekAward"
+    ],
+    "on_error": [
+      "Wsgw-result_NoWeekAward"
+    ],
+    "post_delay": 3000,
+    "recognition": {
+      "param": {
+        "template": "Wsgw/buttonWeekAward1.png",
+        "threshold": 0.8
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "Wsgw-clickReceive": {
+    "$__mpe_code": {
+      "position": {
+        "x": 2111,
+        "y": 80
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "roi": [
+          218,
+          868,
+          273,
+          159
+        ],
+        "template": "Wsgw/buttonReceive.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "Wsgw-closePopWindow": {
+    "$__mpe_code": {
+      "position": {
+        "x": 300,
+        "y": 291
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "Wsgw"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          545,
+          284,
+          135,
+          135
+        ],
+        "template": "Wsgw/buttonClosePopWindow.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "Wsgw-enterMyPage": {
+    "$__mpe_code": {
+      "position": {
+        "x": 600,
+        "y": 488
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "Wsgw-findSignButton2",
+      "Wsgw-enterMyPage"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          568,
+          1432,
+          152,
+          169
+        ],
+        "template": "Wsgw/buttonMyPage.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "Wsgw-findSignButton1": {
+    "$__mpe_code": {
+      "position": {
+        "x": 600,
+        "y": 29
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "Wsgw-checkSignPage",
+      "[JumpBack]Wsgw-ignoreWarning"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          261,
+          815,
+          196,
+          223
+        ],
+        "template": "Wsgw/signEntrance1.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "Wsgw-findSignButton2": {
+    "$__mpe_code": {
+      "position": {
+        "x": 900,
+        "y": 481
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "Wsgw-checkSignPage"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          513,
+          148,
+          207,
+          145
+        ],
+        "template": "Wsgw/signEntrance2.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "Wsgw-ignoreWarning": {
+    "$__mpe_code": {
+      "position": {
+        "x": 900,
+        "y": 159
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "roi": [
+          545,
+          286,
+          134,
+          131
+        ],
+        "template": "Wsgw/buttonCloseWarning.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "Wsgw-result_GetWeekAward": {
+    "$__mpe_code": {
+      "position": {
+        "x": 2100,
+        "y": 328
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "网上国网获得周礼包"
+    },
+    "next": [
+      "stopWsgw"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "恭喜您"
+        ],
+        "roi": [
+          252,
+          677,
+          211,
+          87
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "Wsgw-result_NoWeekAward": {
+    "$__mpe_code": {
+      "position": {
+        "x": 2100,
+        "y": 625
+      }
+    },
+    "action": "DoNothing",
+    "focus": {
+      "Node.Action.Succeeded": "网上国网无周礼包"
+    },
+    "next": [
+      "stopWsgw"
+    ]
+  },
+  "Wsgw-result_SignSucceed": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1500,
+        "y": -42
+      }
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "网上国网签到成功"
+    },
+    "next": [
+      "Wsgw-clickReceive"
+    ],
+    "recognition": {
+      "param": {
+        "expected": "签到成功",
+        "roi": [
+          254,
+          566,
+          204,
+          65
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "Wsgw-无周礼包": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1800,
+        "y": 752
+      }
+    },
+    "next": [
+      "Wsgw-result_NoWeekAward"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "很遗憾"
+        ],
+        "roi": [
+          132,
+          756,
+          116,
+          53
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "startWsgw": {
+    "$__mpe_code": {
+      "position": {
+        "x": 600,
+        "y": 301
+      }
+    },
+    "action": {
+      "param": {
+        "package": "com.sgcc.wsgw.cn"
+      },
+      "type": "StartApp"
+    }
+  },
+  "stopWsgw": {
+    "$__mpe_code": {
+      "position": {
+        "x": 2400,
+        "y": 383
+      }
+    },
+    "action": {
+      "param": {
+        "package": "com.sgcc.wsgw.cn"
+      },
+      "type": "StopApp"
+    }
+  }
+}
