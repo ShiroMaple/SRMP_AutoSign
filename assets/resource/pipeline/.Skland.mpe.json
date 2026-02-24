@@ -1,0 +1,72 @@
+{
+    "file_config": {
+        "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Skland.json",
+        "filename": "SKland",
+        "isModifiedExternally": false,
+        "lastSyncTime": 1771920658368,
+        "prefix": "",
+        "savedViewport": {
+            "x": 231,
+            "y": 365,
+            "zoom": 0.66
+        },
+        "separatedConfigPath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\.Skland.mpe.json",
+        "version": "v1.2.0"
+    },
+    "node_configs": {
+        "CloseSkland": {
+            "position": {
+                "x": 1974,
+                "y": 68
+            }
+        },
+        "EnterArknightsPage": {
+            "position": {
+                "x": 547,
+                "y": -121
+            }
+        },
+        "EnterSignInBenefitsPage": {
+            "position": {
+                "x": 811,
+                "y": 210
+            }
+        },
+        "IgnoreUpdates": {
+            "position": {
+                "x": 274,
+                "y": 220
+            }
+        },
+        "SKland-result_SignSucceed": {
+            "position": {
+                "x": 1665,
+                "y": 56
+            }
+        },
+        "Sign": {
+            "position": {
+                "x": 1376,
+                "y": 45
+            }
+        },
+        "SignInBenefitsPageFlag": {
+            "position": {
+                "x": 1077,
+                "y": 58
+            }
+        },
+        "Skland": {
+            "position": {
+                "x": 0,
+                "y": 49
+            }
+        },
+        "StartSkland": {
+            "position": {
+                "x": 290,
+                "y": -279
+            }
+        }
+    }
+}

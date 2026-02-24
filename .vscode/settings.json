@@ -38,7 +38,5 @@
     "[markdown]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-    },
-    // 新增：禁用 Maa 扩展的 MPE 配置警告  
-    "maa.mpeConfig": false
+    }
 }

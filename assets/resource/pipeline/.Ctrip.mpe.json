@@ -1,0 +1,132 @@
+{
+    "file_config": {
+        "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Ctrip.json",
+        "filename": "Ctrip",
+        "isModifiedExternally": false,
+        "lastSyncTime": 1771920510979,
+        "prefix": "",
+        "savedViewport": {
+            "x": 139,
+            "y": -13,
+            "zoom": 0.58
+        },
+        "separatedConfigPath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\.Ctrip.mpe.json",
+        "version": "v1.2.0"
+    },
+    "node_configs": {
+        "Ctrip": {
+            "position": {
+                "x": 12,
+                "y": 1342
+            }
+        },
+        "Ctrip-buttonHappyReceive": {
+            "position": {
+                "x": 1292,
+                "y": 894
+            }
+        },
+        "Ctrip-clickClose": {
+            "position": {
+                "x": 1292,
+                "y": 1222
+            }
+        },
+        "Ctrip-closePopWindow": {
+            "position": {
+                "x": 1292,
+                "y": 323
+            }
+        },
+        "Ctrip-confirmApp": {
+            "position": {
+                "x": 332,
+                "y": 1284
+            }
+        },
+        "Ctrip-enterMyPage": {
+            "position": {
+                "x": 652,
+                "y": 1240
+            }
+        },
+        "Ctrip-enterSignPage": {
+            "position": {
+                "x": 652,
+                "y": 919
+            }
+        },
+        "Ctrip-flagMyPage": {
+            "position": {
+                "x": 332,
+                "y": 979
+            }
+        },
+        "Ctrip-flagSignPage": {
+            "position": {
+                "x": 972,
+                "y": 650
+            }
+        },
+        "Ctrip-ignoreUpdate": {
+            "position": {
+                "x": 972,
+                "y": 1347
+            }
+        },
+        "Ctrip-isTravelling": {
+            "position": {
+                "x": 2252,
+                "y": 768
+            }
+        },
+        "Ctrip-randomTrip": {
+            "position": {
+                "x": 1932,
+                "y": 642
+            }
+        },
+        "Ctrip-resultSucceed": {
+            "position": {
+                "x": 2572,
+                "y": 740
+            }
+        },
+        "Ctrip-signByBubble": {
+            "position": {
+                "x": 972,
+                "y": 33
+            }
+        },
+        "Ctrip-signByButton": {
+            "position": {
+                "x": 652,
+                "y": 598
+            }
+        },
+        "Ctrip-travelOnCloud": {
+            "position": {
+                "x": 1292,
+                "y": 642
+            }
+        },
+        "Ctrip-云旅行次数奖励": {
+            "position": {
+                "x": 1612,
+                "y": 611
+            }
+        },
+        "startCtrip": {
+            "position": {
+                "x": 332,
+                "y": 762
+            }
+        },
+        "stopCtrip": {
+            "position": {
+                "x": 2892,
+                "y": 786
+            }
+        }
+    }
+}

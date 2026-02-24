@@ -17,6 +17,8 @@ class GlobalTaskManager:
             cls._instance.extracted_contents = {}  # {task_name: {key: value}}
             cls._instance.focus_messages = {}  # {task_name: [messages]}
             cls._instance.task_id_to_name = {}  # 翻译本：task_id → task_name
+            cls._instance.task_name_mapping = {}  # entry -> name 映射字典
+            cls._instance._load_task_name_mapping()
         return cls._instance
 
     # 注册任务ID和入口名的映射
@@ -24,21 +26,49 @@ class GlobalTaskManager:
         """任务开始时调用：记录 task_id 对应的 entry"""
         if task_name != "NotifyReport":  # 跳过报告任务
             self.task_id_to_name[task_id] = task_name
-            print(f"[📝] 注册任务映射: task_id={task_id} → {task_name}")
+            #print(f"[📝] 注册任务映射: task_id={task_id} → {task_name}")
     
-    # 通过 task_id 获取任务名（精准！）
+    # 通过 task_id 获取任务名
     def get_task_name_by_id(self, task_id: int) -> str:
         """优先查翻译本，查不到再推断（兜底）"""
         if task_id in self.task_id_to_name:
             return self.task_id_to_name[task_id]
         
-        # 兜底方案（理论上不应触发）
         print(f"[⚠️] 未找到 task_id={task_id} 的映射！使用兜底推断")
         return f"Task_{task_id}"
     
     # 任务结束时清理（防内存泄漏）
     def unregister_task(self, task_id: int):
-        self.task_id_to_name.pop(task_id, None)    
+        self.task_id_to_name.pop(task_id, None)
+    
+    def _load_task_name_mapping(self):
+        """从 interface.json 加载 task 的 entry -> name 映射"""
+        try:
+            interface_path = Path(__file__).parent.parent / "assets" / "interface.json"
+            with open(interface_path, "r", encoding="utf-8") as f:
+                content = f.read()
+            
+            # 使用正则表达式提取 task 部分的 entry 和 name
+            import re
+            # 匹配两种顺序：entry 在前或 name 在前
+            pattern1 = r'"entry":\s*"([^"]+)"\s*,\s*"name":\s*"([^"]+)"'
+            pattern2 = r'"name":\s*"([^"]+)"\s*,\s*"entry":\s*"([^"]+)"'
+            
+            matches1 = re.findall(pattern1, content)
+            matches2 = re.findall(pattern2, content)
+            
+            for entry, name in matches1:
+                self.task_name_mapping[entry] = name
+            for name, entry in matches2:
+                self.task_name_mapping[entry] = name
+            
+            #print(f"[📋] 已加载 {len(self.task_name_mapping)} 个任务名称映射")
+        except Exception as e:
+            print(f"[⚠️] 加载任务名称映射失败: {e}")
+    
+    def _convert_task_name(self, task_name: str) -> str:
+        """将 task_name 转换为显示名称，如果映射不存在则保留原值"""
+        return self.task_name_mapping.get(task_name, task_name)    
     
     def _ensure_task_exists(self, task_name: str):
         """确保存在任务记录条目"""
@@ -54,7 +84,7 @@ class GlobalTaskManager:
         """记录单个任务结果"""
         self._ensure_task_exists(task_name)
         self.task_results[task_name]["success"] = success
-        print(f"[📊] 记录任务结果: {task_name} -> {'✅' if success else '❌'}")
+        #print(f"[📊] 记录任务结果: {task_name} -> {'✅' if success else '❌'}")
     
     def record_focus_message(self, task_name: str, message: str):
         """记录任务的 focus 消息"""
@@ -102,8 +132,11 @@ class GlobalTaskManager:
         for task_name, result in self.task_results.items():
             status = "✅" if result.get("success") is True else "❌" if result.get("success") is False else "⏳"
             
+            # 转换任务名称为显示名称
+            display_name = self._convert_task_name(task_name)
+            
             # 基础任务信息
-            task_report = f"\n• {task_name}: {status}"
+            task_report = f"\n• {display_name}: {status}"
             
             # 添加提取内容（如果有）
             extracts = result.get("extracts", {})
@@ -141,9 +174,9 @@ class GlobalTaskManager:
         
         success = send_to_serverchan("✅ SRMP_AutoSign 执行完成", report)
         if success:
-            print("[📦] 全局报告已成功发送到 ServerChan")
+            print("[📦] 报告已成功发送到 ServerChan")
         else:
-            print("[⚠️] 全局报告发送失败")
+            print("[⚠️] 报告发送失败")
         
         # 保存完整报告到文件（可选）
         self._save_full_report(report)
@@ -168,6 +201,6 @@ class GlobalTaskManager:
                     "extracted_contents": self.extracted_contents,
                     "focus_messages": self.focus_messages
                 }, f, ensure_ascii=False, indent=2)
-            print(f"[💾] 完整报告已保存至: assets/reports/{filename}")
+            print(f"[💾] 报告已保存至: assets/reports/{filename}")
         except Exception as e:
-            print(f"[⚠️] 保存完整报告失败: {e}")
+            print(f"[⚠️] 报告保存失败: {e}")

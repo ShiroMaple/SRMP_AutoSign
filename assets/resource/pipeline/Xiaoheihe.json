@@ -52,8 +52,13 @@
       "type": "TemplateMatch"
     },
     "focus": {
-      "Node.Recognition.Succeeded": "{name}签到成功",
-      "Node.Recognition.Failed": "{name}未识别到结果"
+      "Node.Recognition.Succeeded": "{name}签到成功"
+    }
+  },
+  "Xiaoheihe_SignFailed": {
+    "action": "DoNothing",
+    "focus": {
+      "Node.Action.Starting": "{name}签到未识别到结果"
     }
   },
   "enterXiaoheihe": {
@@ -65,6 +70,9 @@
     },
     "next": [
       "Xiaoheihe_SignSucceed"
+    ],
+    "on_error": [
+      "Xiaoheihe_SignFailed"
     ],
     "recognition": {
       "param": {

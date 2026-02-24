@@ -1,0 +1,78 @@
+{
+    "file_config": {
+        "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Huazhuhui.json",
+        "filename": "Hitnns",
+        "isModifiedExternally": false,
+        "lastSyncTime": 1771920929967,
+        "prefix": "",
+        "savedViewport": {
+            "x": 197,
+            "y": -51,
+            "zoom": 0.66
+        },
+        "separatedConfigPath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\.Huazhuhui.mpe.json",
+        "version": "v1.2.0"
+    },
+    "node_configs": {
+        "Hitnns-closePopWindow": {
+            "position": {
+                "x": 340,
+                "y": 433
+            }
+        },
+        "Hitnns-result_SignSucceed": {
+            "position": {
+                "x": 1612,
+                "y": 373
+            }
+        },
+        "Hitnns-result_Signed": {
+            "position": {
+                "x": 1612,
+                "y": 12
+            }
+        },
+        "Htinns": {
+            "position": {
+                "x": 12,
+                "y": 761
+            }
+        },
+        "Htinns-confirmApp": {
+            "position": {
+                "x": 332,
+                "y": 726
+            }
+        },
+        "Htinns-enterMainPage": {
+            "position": {
+                "x": 652,
+                "y": 342
+            }
+        },
+        "Htinns-enterSignPage": {
+            "position": {
+                "x": 972,
+                "y": 407
+            }
+        },
+        "Htinns-sign": {
+            "position": {
+                "x": 1292,
+                "y": 379
+            }
+        },
+        "startHtinns": {
+            "position": {
+                "x": 332,
+                "y": 947
+            }
+        },
+        "stopHtinns": {
+            "position": {
+                "x": 1932,
+                "y": 404
+            }
+        }
+    }
+}

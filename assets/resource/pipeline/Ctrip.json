@@ -3,12 +3,182 @@
         "next": [
             "Ctrip-ignoreUpdate",
             "Ctrip-confirmApp",
-            "[JumpBack]startCtrip"
+            {
+                "jump_back": true,
+                "name": "startCtrip"
+            }
         ]
     },
-    "Ctrip-ignoreUpdate": {
+    "Ctrip-buttonHappyReceive": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
         "recognition": {
-            "type": "OCR",
+            "param": {
+                "expected": "开心收下",
+                "roi": [
+                    114,
+                    953,
+                    595,
+                    364
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "Ctrip-clickClose": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Ctrip-enterMyPage"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    559,
+                    430,
+                    142,
+                    172
+                ],
+                "template": "Ctrip/buttonClose1.png"
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "Ctrip-closePopWindow": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Ctrip-flagSignPage"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    291,
+                    1186,
+                    136,
+                    134
+                ],
+                "template": "Ctrip/buttonClose2.png"
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "Ctrip-confirmApp": {
+        "next": [
+            "Ctrip-ignoreUpdate",
+            "Ctrip-enterMyPage"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    0,
+                    27,
+                    142,
+                    147
+                ],
+                "template": "Ctrip/logo.png"
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "Ctrip-enterMyPage": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Ctrip-ignoreUpdate",
+            "Ctrip-flagMyPage",
+            "Ctrip-enterMyPage"
+        ],
+        "recognition": {
+            "param": {
+                "expected": "我的",
+                "roi": [
+                    569,
+                    1485,
+                    151,
+                    116
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "Ctrip-enterSignPage": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Ctrip-flagSignPage",
+            "Ctrip-enterSignPage"
+        ],
+        "post_wait_freezes": 2000,
+        "recognition": {
+            "param": {
+                "expected": "签到",
+                "roi": [
+                    464,
+                    58,
+                    144,
+                    129
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "Ctrip-flagMyPage": {
+        "next": [
+            "Ctrip-enterSignPage",
+            "Ctrip-enterMyPage"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    570,
+                    1434,
+                    150,
+                    167
+                ],
+                "template": "Ctrip/flagMyPage.png"
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "Ctrip-flagSignPage": {
+        "next": [
+            "Ctrip-signByButton",
+            "Ctrip-closePopWindow",
+            "Ctrip-signByBubble",
+            "Ctrip-travelOnCloud",
+            "Ctrip-isTravelling",
+            {
+                "jump_back": true,
+                "name": "Ctrip-buttonHappyReceive"
+            }
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "Ctrip/buttonSignIn.png",
+                    "Ctrip/buttonShareAlbum.png",
+                    "Ctrip/buttonCloudTravel.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "Ctrip-ignoreUpdate": {
+        "next": [
+            "Ctrip-clickClose"
+        ],
+        "recognition": {
             "param": {
                 "expected": [
                     "立即安装",
@@ -20,189 +190,71 @@
                     213,
                     174
                 ]
-            }
-        },
-        "next": [
-            "Ctrip-clickClose"
-        ]
+            },
+            "type": "OCR"
+        }
     },
-    "Ctrip-clickClose": { //关闭升级弹窗
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": "Ctrip/buttonClose1.png",
-                "roi": [
-                    559,
-                    430,
-                    142,
-                    172
-                ]
-            }
-        },
-        "action": "Click",
+    "Ctrip-isTravelling": {
         "next": [
-            "Ctrip-enterMyPage"
-        ]
-    },
-    "Ctrip-confirmApp": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": "Ctrip/logo.png",
-                "roi": [
-                    0,
-                    27,
-                    142,
-                    147
-                ]
-            }
-        },
-        "next": [
-            "Ctrip-ignoreUpdate",
-            "Ctrip-enterMyPage"
-        ]
-    },
-    "Ctrip-enterMyPage": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": "我的",
-                "roi": [
-                    569,
-                    1485,
-                    151,
-                    116
-                ]
-            }
-        },
-        "action": "Click",
-        "next": [
-            "Ctrip-ignoreUpdate",
-            "Ctrip-flagMyPage",
-            "Ctrip-enterMyPage"
-        ]
-    },
-    "Ctrip-flagMyPage": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": "Ctrip/flagMyPage.png",
-                "roi": [
-                    570,
-                    1434,
-                    150,
-                    167
-                ]
-            }
-        },
-        "next": [
-            "Ctrip-enterSignPage",
-            "Ctrip-enterMyPage"
-        ]
-        //"interrupt": "Ctrip-ignoreUpdate"
-    },
-    "Ctrip-enterSignPage": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": "签到",
-                "roi": [
-                    464,
-                    58,
-                    144,
-                    129
-                ]
-            }
-        },
-        "action": "Click",
-        "next": [
-            "Ctrip-flagSignPage"
+            "Ctrip-resultSucceed"
         ],
-        "post_wait_freezes": 2000
-    },
-    "Ctrip-flagSignPage": {
-        /*
         "recognition": {
-            "type": "TemplateMatch",
             "param": {
-                "template": "Ctrip/flagSignPage.png",
-                "roi": [
-                    464,
-                    58,
-                    144,
-                    129
-                ]
-            }
-        },
-        */
-        "next": [
-            "Ctrip-signByButton",
-            "Ctrip-closePopWindow",
-            "Ctrip-signByBubble",
-            "Ctrip-travelOnCloud",
-            "Ctrip-isTravelling",
-            "[JumpBack]Ctrip-buttonHappyReceive"
-        ]
-    },
-    "Ctrip-signByButton": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": "立即签到",
+                "expected": ".*旅行中.*",
                 "roi": [
                     215,
-                    865,
-                    288,
-                    170
+                    676,
+                    176,
+                    149
                 ]
-            }
-        },
-        "action": "Click",
-        "post_delay": 1500,
-        "next": [
-            "Ctrip-closePopWindow",
-            "Ctrip-flagSignPage",
-            "[JumpBack]Ctrip-buttonHappyReceive"
-        ]
+            },
+            "type": "OCR"
+        }
     },
-    "Ctrip-closePopWindow": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": "Ctrip/buttonClose2.png",
-                "roi": [
-                    291,
-                    1186,
-                    136,
-                    134
-                ]
-            }
+    "Ctrip-randomTrip": {
+        "action": {
+            "param": {},
+            "type": "Click"
         },
-        "action": "Click",
         "next": [
-            "Ctrip-flagSignPage"
-        ]
-    },
-    "Ctrip-buttonHappyReceive": {
+            "Ctrip-isTravelling",
+            "Ctrip-randomTrip"
+        ],
+        "post_delay": 3000,
         "recognition": {
-            //"type": "TemplateMatch",
-            "type": "OCR",
             "param": {
-                //"template": "Ctrip/buttonHappyReceive.png",
-                "expected": "开心收下",
+                "expected": "随机旅行",
                 "roi": [
-                    114,
-                    953,
-                    595,
-                    364
+                    17,
+                    1385,
+                    226,
+                    103
                 ]
-            }
+            },
+            "type": "OCR"
+        }
+    },
+    "Ctrip-resultSucceed": {
+        "focus": {
+            "Node.Recognition.Succeeded": "{name}签到成功"
         },
-        "action": "Click"
+        "next": [
+            "stopCtrip"
+        ],
+        "post_delay": 0,
+        "pre_delay": 0
     },
     "Ctrip-signByBubble": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Ctrip-flagSignPage",
+            "Ctrip-closePopWindow"
+        ],
+        "post_delay": 1500,
         "recognition": {
-            "type": "OCR",
             "param": {
                 "expected": [
                     "立即签到",
@@ -214,17 +266,48 @@
                     415,
                     228
                 ]
-            }
+            },
+            "type": "OCR"
+        }
+    },
+    "Ctrip-signByButton": {
+        "action": {
+            "param": {},
+            "type": "Click"
         },
-        "action": "Click",
-        "post_delay": 1500,
         "next": [
-            "Ctrip-flagSignPage"
-        ]
+            "Ctrip-closePopWindow",
+            "Ctrip-flagSignPage",
+            {
+                "jump_back": true,
+                "name": "Ctrip-buttonHappyReceive"
+            }
+        ],
+        "post_delay": 1500,
+        "recognition": {
+            "param": {
+                "expected": "立即签到",
+                "roi": [
+                    215,
+                    865,
+                    288,
+                    170
+                ]
+            },
+            "type": "OCR"
+        }
     },
     "Ctrip-travelOnCloud": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Ctrip-云旅行次数奖励",
+            "Ctrip-randomTrip"
+        ],
+        "post_wait_freezes": 1000,
         "recognition": {
-            "type": "OCR",
             "param": {
                 "expected": "云旅行赚积分",
                 "roi": [
@@ -233,18 +316,19 @@
                     354,
                     157
                 ]
-            }
-        },
-        "action": "Click",
-        "post_wait_freezes": 1000,
-        "next": [
-            "Ctrip-云旅行次数奖励",
-            "Ctrip-randomTrip"
-        ]
+            },
+            "type": "OCR"
+        }
     },
     "Ctrip-云旅行次数奖励": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Ctrip-randomTrip"
+        ],
         "recognition": {
-            "type": "OCR",
             "param": {
                 "expected": "领奖励",
                 "roi": [
@@ -253,67 +337,24 @@
                     186,
                     144
                 ]
-            }
-        },
-        "action": "Click",
-        "next": [
-            "Ctrip-randomTrip"
-        ]
-    },
-    "Ctrip-randomTrip": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": "随机旅行",
-                "roi": [
-                    17,
-                    1385,
-                    226,
-                    103
-                ]
-            }
-        },
-        "action": "Click",
-        "next": [
-            "Ctrip-isTravelling",
-            "Ctrip-randomTrip"
-        ],
-        "post_delay": 3000
-    },
-    "Ctrip-isTravelling": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": ".*旅行中.*",
-                "roi": [
-                    215,
-                    676,
-                    176,
-                    149
-                ]
-            }
-        },
-        "next": [
-            "Ctrip-resultSucceed"
-        ]
-    },
-    "Ctrip-resultSucceed": {
-        "pre_delay": 0,
-        "post_delay": 0,
-        "action": "DoNothing",
-        "focus": {
-            "Node.Recognition.Succeeded": "{name}签到成功"
-        },
-        "next": [
-            "stopCtrip"
-        ]
+            },
+            "type": "OCR"
+        }
     },
     "startCtrip": {
-        "action": "StartApp",
-        "package": "ctrip.android.view"
+        "action": {
+            "param": {
+                "package": "ctrip.android.view"
+            },
+            "type": "StartApp"
+        }
     },
     "stopCtrip": {
-        "action": "StopApp",
-        "package": "ctrip.android.view"
+        "action": {
+            "param": {
+                "package": "ctrip.android.view"
+            },
+            "type": "StopApp"
+        }
     }
 }

@@ -16,12 +16,16 @@ class TaskStatusSink(TaskerEventSink):
         if noti_type == NotificationType.Starting:
             if detail.entry != "NotifyReport":
                 manager.register_task_name(detail.task_id, detail.entry)
+                display_name = manager._convert_task_name(detail.entry)
+                print(f"[🚀] 任务开始: {display_name}")
 
         # 任务成功/失败输出并清理
         elif noti_type in [NotificationType.Succeeded, NotificationType.Failed]:
             if detail.entry != "NotifyReport":
                 status = "成功" if noti_type == NotificationType.Succeeded else "失败"
-                print(f"任务{status}: {detail.entry}")
+                display_name = manager._convert_task_name(detail.entry)
+                icon = "✅" if noti_type == NotificationType.Succeeded else "❌"
+                print(f"[{icon}] 任务{status}: {display_name}")
                 manager.record_task_result(detail.entry, noti_type == NotificationType.Succeeded)
                 manager.unregister_task(detail.task_id)
 
@@ -48,6 +52,7 @@ class FocusContentSink(ContextEventSink):
             print(f"[⚠️] 未查询到Focus消息所属的task_id: {msg}")
             return
         task_name = GlobalTaskManager().get_task_name_by_id(task_id)
+        display_name = GlobalTaskManager()._convert_task_name(task_name)
                 
         # 1. 检查是否存在 focus 数据
         focus_data = details.get("focus")
@@ -61,21 +66,24 @@ class FocusContentSink(ContextEventSink):
         # 3. 获取模板并替换占位符
         template = focus_data[msg]
         try:
+            # 添加 name 到 details 中，使用转换后的显示名称
+            format_details = details.copy()
+            format_details["name"] = display_name
             # 安全替换占位符（避免 KeyError）
-            formatted_msg = template.format(**details)
+            formatted_msg = template.format(**format_details)
         except KeyError as e:
             formatted_msg = f"[格式错误] 模板 '{template}' 缺少字段: {e}"
             print(f"[⚠️] Focus 消息格式错误: {formatted_msg}")
         
-        # 5. 终端输出
+        # 4. 终端输出
         noti_type = self._notification_type(msg)
         status_emoji = "📝" if noti_type == NotificationType.Starting else "✅" if noti_type == NotificationType.Succeeded else "❌"
-        print(f"[{status_emoji}] {task_name} > {formatted_msg}")
+        print(f"[{status_emoji}] {display_name} > {formatted_msg}")
         
-        # 6. 保存到任务结果
+        # 5. 保存到任务结果
         GlobalTaskManager().record_focus_message(task_name, formatted_msg)
         
-        # 7. 特殊处理：extract 消息（格式: "extract:key - value"）
+        # 6. 特殊处理：extract 消息（格式: "extract:key - value"）
         if "extract:" in formatted_msg:
             self._handle_extract_message(task_name, formatted_msg)
     
@@ -101,7 +109,8 @@ class FocusContentSink(ContextEventSink):
                 
                 # 保存到任务的提取内容
                 GlobalTaskManager().record_extracted_content(task_name, key, value)
-                print(f"[📦] 已提取 {task_name} 的 {key}: {value}")
+                display_name = GlobalTaskManager()._convert_task_name(task_name)
+                print(f"[📦] 已提取 {display_name} 的 {key}: {value}")
                 return
         
         # 未匹配到标准格式，但包含 extract 关键字
@@ -113,5 +122,5 @@ class FinalReportSink(ContextEventSink):
     def on_node_pipeline_node(self, context:Context, noti_type: NotificationType, detail):
         # 监听 NotifyReport 任务的完成事件（修正节点名）
         if detail.name == "NotifyReport" and noti_type == NotificationType.Succeeded:
-            print("[✨] 检测到 NotifyReport 任务完成，准备发送全局报告...")
+            print("[✨] 检测到 NotifyReport 任务，准备推送通知...")
             GlobalTaskManager().send_final_report()

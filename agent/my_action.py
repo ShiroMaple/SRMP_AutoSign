@@ -8,8 +8,22 @@ import json
 
 # ==============================================================================
 # 全局配置/常量定义
-# ==============================================================================
-
+# ==============================================================================    
+def GameNameDict(GameName:str)->str:    
+    match GameName:
+        case "原神":
+            GameNameEng = "Genshin"
+        case "星穹铁道" | "崩坏：星穹铁道"|"坏：星穹铁道"|"崩坏星":
+            GameNameEng = "Starrail"
+        case "绝区零":
+            GameNameEng = "ZZZ"
+        case "明日方舟":
+            GameNameEng = "Arknights"
+        case "女神异闻录" | "女神异闻录：夜幕魅影"|"女神异闻录：夜嘉"|"女神異闻录：夜幕魅影":
+            GameNameEng = "P5X"
+        case _:
+            GameNameEng = "Unknown"
+    return GameNameEng
 # ==============================================================================
 # 工具函数（通用辅助功能）
 # ==============================================================================
@@ -34,22 +48,7 @@ class HandleError(CustomAction):
         manager.record_extracted_content(task_name,"Error",msg)
         #add_notice("异常",msg)        
         return CustomAction.RunResult(success=True)
-    
-def GameNameDict(GameName:str)->str:    
-    match GameName:
-        case "原神":
-            GameNameEng = "Genshin"
-        case "星穹铁道" | "崩坏：星穹铁道"|"坏：星穹铁道"|"崩坏星":
-            GameNameEng = "Starrail"
-        case "绝区零":
-            GameNameEng = "ZZZ"
-        case "明日方舟":
-            GameNameEng = "Arknights"
-        case "女神异闻录" | "女神异闻录：夜幕魅影"|"女神异闻录：夜嘉"|"女神異闻录：夜幕魅影":
-            GameNameEng = "P5X"
-        case _:
-            GameNameEng = "Unknown"
-    return GameNameEng
+
 
 def find_latest_reco_text(pattern,node_list) -> str:    
     """

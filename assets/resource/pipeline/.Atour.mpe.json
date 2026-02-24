@@ -1,0 +1,111 @@
+{
+    "external_nodes": {
+        "fullScreen_swipeBack": {
+            "position": {
+                "x": 1292,
+                "y": 53
+            }
+        },
+        "fullScreen_swipeUp": {
+            "position": {
+                "x": 1612,
+                "y": 250
+            }
+        }
+    },
+    "file_config": {
+        "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Atour.json",
+        "filename": "Atour",
+        "isModifiedExternally": false,
+        "lastSyncTime": 1771922995319,
+        "prefix": "",
+        "savedViewport": {
+            "x": 471,
+            "y": 225,
+            "zoom": 0.43
+        },
+        "separatedConfigPath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\.Atour.mpe.json",
+        "version": "v1.2.0"
+    },
+    "node_configs": {
+        "Atour": {
+            "position": {
+                "x": 12,
+                "y": 367
+            }
+        },
+        "Atour-confirmApp": {
+            "position": {
+                "x": 332,
+                "y": 551
+            }
+        },
+        "Atour-drawCard": {
+            "position": {
+                "x": 1612,
+                "y": 553
+            }
+        },
+        "Atour-drawedCard": {
+            "position": {
+                "x": 1932,
+                "y": 565
+            }
+        },
+        "Atour-enterMainPage": {
+            "position": {
+                "x": 652,
+                "y": 142
+            }
+        },
+        "Atour-enterSignPage": {
+            "position": {
+                "x": 652,
+                "y": 453
+            }
+        },
+        "Atour-handleCaptcha": {
+            "position": {
+                "x": 1292,
+                "y": 197
+            }
+        },
+        "Atour-result_signSucceed": {
+            "position": {
+                "x": 1292,
+                "y": 442
+            }
+        },
+        "Atour-sign": {
+            "position": {
+                "x": 972,
+                "y": 233
+            }
+        },
+        "Atour-signed": {
+            "position": {
+                "x": 972,
+                "y": 544
+            }
+        },
+        "Atour_retry": {
+            "handleDirection": "top-bottom",
+            "position": {
+                "x": 972,
+                "y": 12
+            }
+        },
+        "startAtour": {
+            "position": {
+                "x": 332,
+                "y": 334
+            }
+        },
+        "stopAtour": {
+            "position": {
+                "x": 2252,
+                "y": 488
+            }
+        }
+    }
+}

@@ -67,7 +67,10 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": "动态",
+                "expected": [
+                    "动态",
+                    "社区"
+                ],
                 "roi": [
                     259,
                     1420,

@@ -138,6 +138,9 @@
         "action": "Click",
         "next": [
             "P5XW_result_SignSucceed"
+        ],
+        "on_error": [
+            "P5XW_result_SignFailed"
         ]
     },
     "P5XW_result_SignSucceed": {
@@ -155,8 +158,19 @@
         },
         "action": "DoNothing",
         "focus": {
-            "Node.Recognition.Succeeded": "{name}签到成功",
-            "Node.Recognition.Failed": "{name}签到异常"
+            "Node.Recognition.Succeeded": "{name}签到成功"
+        },
+        "next": [
+            "Wechat_closeWindow"
+        ],
+        "on_error": [
+            "P5XW_result_SignFailed"
+        ]
+    },
+    "P5XW_result_SignFailed": {
+        "action": "DoNothing",
+        "focus": {
+            "Node.Action.Starting": "{name}签到异常或已签"
         },
         "next": [
             "Wechat_closeWindow"

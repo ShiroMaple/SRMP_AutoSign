@@ -1,0 +1,110 @@
+{
+    "external_nodes": {
+        "fullScreen_swipeUp": {
+            "position": {
+                "x": 1487,
+                "y": 792
+            }
+        }
+    },
+    "file_config": {
+        "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Wangshangguowang.json",
+        "filename": "Wangshangguowang",
+        "isModifiedExternally": false,
+        "lastSyncTime": 1771913749067,
+        "prefix": "",
+        "savedViewport": {
+            "x": 56,
+            "y": 234,
+            "zoom": 0.66
+        },
+        "separatedConfigPath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\.Wangshangguowang.mpe.json",
+        "version": "v1.2.0"
+    },
+    "node_configs": {
+        "Wsgw": {
+            "position": {
+                "x": 300,
+                "y": 69
+            }
+        },
+        "Wsgw-checkSignPage": {
+            "position": {
+                "x": 1171,
+                "y": -35
+            }
+        },
+        "Wsgw-checkWeekAwards": {
+            "position": {
+                "x": 1500,
+                "y": 297
+            }
+        },
+        "Wsgw-clickReceive": {
+            "position": {
+                "x": 1800,
+                "y": -168
+            }
+        },
+        "Wsgw-closePopWindow": {
+            "position": {
+                "x": 300,
+                "y": 291
+            }
+        },
+        "Wsgw-enterMyPage": {
+            "position": {
+                "x": 606,
+                "y": 304
+            }
+        },
+        "Wsgw-findSignButton1": {
+            "position": {
+                "x": 606,
+                "y": -98
+            }
+        },
+        "Wsgw-findSignButton2": {
+            "position": {
+                "x": 900,
+                "y": 403
+            }
+        },
+        "Wsgw-ignoreWarning": {
+            "position": {
+                "x": 900,
+                "y": 159
+            }
+        },
+        "Wsgw-result_GetWeekAward": {
+            "position": {
+                "x": 2089,
+                "y": 330
+            }
+        },
+        "Wsgw-result_NoWeekAward": {
+            "position": {
+                "x": 2100,
+                "y": 625
+            }
+        },
+        "Wsgw-无周礼包": {
+            "position": {
+                "x": 1817,
+                "y": 155
+            }
+        },
+        "startWsgw": {
+            "position": {
+                "x": 598,
+                "y": 578
+            }
+        },
+        "stopWsgw": {
+            "position": {
+                "x": 2418,
+                "y": 363
+            }
+        }
+    }
+}

@@ -1,219 +1,154 @@
 {
-  "$__mpe_config_SKkland": {
-    "$__mpe_code": {
-      "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Skland.json",
-      "filename": "SKkland",
-      "lastSyncTime": 1770685329760,
-      "prefix": "",
-      "savedViewport": {
-        "x": 75,
-        "y": 262,
-        "zoom": 1
-      },
-      "version": "v1.1.1"
-    }
-  },
-  "CloseSkland": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1974,
-        "y": 68
-      }
+    "CloseSkland": {
+        "action": {
+            "param": {
+                "package": "com.hypergryph.skland"
+            },
+            "type": "StopApp"
+        },
+        "enabled": true
     },
-    "action": {
-      "param": {
-        "package": "com.hypergryph.skland"
-      },
-      "type": "StopApp"
-    },
-    "enabled": true
-  },
-  "EnterArknightsPage": {
-    "$__mpe_code": {
-      "position": {
-        "x": 547,
-        "y": -121
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "EnterSignInBenefitsPage",
-      "SignInBenefitsPageFlag",
-      "EnterArknightsPage"
-    ],
-    "recognition": {
-      "param": {
-        "green_mask": true,
-        "roi": [
-          19,
-          44,
-          503,
-          121
+    "EnterArknightsPage": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "EnterSignInBenefitsPage",
+            "SignInBenefitsPageFlag",
+            "EnterArknightsPage"
         ],
-        "template": [
-          "Skland/EnterArknightsPage_0.png",
-          "Skland/EnterArknightsPage_1.png"
+        "recognition": {
+            "param": {
+                "green_mask": true,
+                "roi": [
+                    19,
+                    44,
+                    503,
+                    121
+                ],
+                "template": [
+                    "Skland/EnterArknightsPage_0.png",
+                    "Skland/EnterArknightsPage_1.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "EnterSignInBenefitsPage": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "SignInBenefitsPageFlag"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    13,
+                    222,
+                    178,
+                    376
+                ],
+                "template": "Skland/EnterSignInBenefitsPage.png"
+            },
+            "type": "FeatureMatch"
+        }
+    },
+    "IgnoreUpdates": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "EnterArknightsPage"
+        ],
+        "recognition": {
+            "param": {
+                "expected": "下次再说",
+                "roi": [
+                    260,
+                    886,
+                    202,
+                    133
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "SKland-result_SignSucceed": {
+        "focus": {
+            "Node.Recognition.Succeeded": "{name}签到成功"
+        },
+        "next": [
+            "CloseSkland"
+        ],
+        "post_delay": 0,
+        "recognition": {
+            "param": {
+                "template": "Skland/SignSucceed.png"
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "Sign": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "SKland-result_SignSucceed"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    63,
+                    371,
+                    649,
+                    672
+                ],
+                "template": "Skland/Receive.png",
+                "threshold": 0.5
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "SignInBenefitsPageFlag": {
+        "next": [
+            "Sign"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "template": "Skland/SignInBenefitsPageFlag.png"
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "Skland": {
+        "next": [
+            "IgnoreUpdates",
+            "EnterArknightsPage",
+            "EnterSignInBenefitsPage",
+            "SignInBenefitsPageFlag",
+            {
+                "jump_back": true,
+                "name": "StartSkland"
+            }
         ]
-      },
-      "type": "TemplateMatch"
+    },
+    "StartSkland": {
+        "action": {
+            "param": {
+                "package": "com.hypergryph.skland/com.hypergryph.skland.SchemeActivity"
+            },
+            "type": "StartApp"
+        }
     }
-  },
-  "EnterSignInBenefitsPage": {
-    "$__mpe_code": {
-      "position": {
-        "x": 811,
-        "y": 210
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "SignInBenefitsPageFlag"
-    ],
-    "recognition": {
-      "param": {
-        "roi": [
-          13,
-          222,
-          178,
-          376
-        ],
-        "template": "Skland/EnterSignInBenefitsPage.png"
-      },
-      "type": "FeatureMatch"
-    }
-  },
-  "IgnoreUpdates": {
-    "$__mpe_code": {
-      "position": {
-        "x": 274,
-        "y": 220
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "EnterArknightsPage"
-    ],
-    "recognition": {
-      "param": {
-        "expected": "下次再说",
-        "roi": [
-          260,
-          886,
-          202,
-          133
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "SKland-result_SignSucceed": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1665,
-        "y": 56
-      }
-    },
-    "next": [
-      "CloseSkland"
-    ],
-    "post_delay": 0,
-    "recognition": {
-      "param": {
-        "template": "Skland/SignSucceed.png"
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "Sign": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1376,
-        "y": 45
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "SKland-result_SignSucceed"
-    ],
-    "recognition": {
-      "param": {
-        "roi": [
-          63,
-          371,
-          649,
-          672
-        ],
-        "template": "Skland/Receive.png",
-        "threshold": 0.5
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "SignInBenefitsPageFlag": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1077,
-        "y": 58
-      }
-    },
-    "next": [
-      "Sign"
-    ],
-    "recognition": {
-      "param": {
-        "roi": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "template": "Skland/SignInBenefitsPageFlag.png"
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "StartSkland": {
-    "$__mpe_code": {
-      "position": {
-        "x": 290,
-        "y": -279
-      }
-    },
-    "action": {
-      "param": {
-        "package": "com.hypergryph.skland/com.hypergryph.skland.SchemeActivity"
-      },
-      "type": "StartApp"
-    }
-  },
-  "Skland": {
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 49
-      }
-    },
-    "next": [
-      "IgnoreUpdates",
-      "EnterArknightsPage",
-      "EnterSignInBenefitsPage",
-      "SignInBenefitsPageFlag",
-      {
-        "jump_back": true,
-        "name": "StartSkland"
-      }
-    ]
-  }
 }
