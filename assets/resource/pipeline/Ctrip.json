@@ -59,10 +59,10 @@
         "recognition": {
             "param": {
                 "roi": [
-                    291,
-                    1186,
-                    136,
-                    134
+                    209,
+                    1184,
+                    280,
+                    233
                 ],
                 "template": "Ctrip/buttonClose2.png"
             },

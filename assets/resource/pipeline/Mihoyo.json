@@ -41,6 +41,7 @@
         "rate_limit": 2000,
         "next": [
             "Mihoyo-enterGenshinPage",
+            "Mihoyo-skipChildMode",
             "[JumpBack]Mihoyo-关闭遮挡弹窗",
             "[JumpBack]Mihoyo-左滑顶部选择栏"
         ]
