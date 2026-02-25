@@ -201,13 +201,10 @@
         "post_delay": 4000,
         "recognition": {
             "param": {
-                "roi": [
-                    252,
-                    1093,
-                    214,
-                    213
-                ],
-                "template": "Idlefish/iconLoading.png"
+                "template": [
+                    "Idlefish/iconLoading.png",
+                    "Idlefish/iconLoading2.png"
+                ]
             },
             "type": "TemplateMatch"
         }
@@ -225,13 +222,10 @@
         "post_delay": 1000,
         "recognition": {
             "param": {
-                "roi": [
-                    252,
-                    1093,
-                    214,
-                    213
-                ],
-                "template": "Idlefish/iconLoading.png"
+                "template": [
+                    "Idlefish/iconLoading.png",
+                    "Idlefish/iconLoading2.png"
+                ]
             },
             "type": "TemplateMatch"
         }

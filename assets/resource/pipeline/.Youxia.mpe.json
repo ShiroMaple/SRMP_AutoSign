@@ -1,0 +1,127 @@
+{
+    "external_nodes": {
+        "FullScreen-swipeUp": {
+            "position": {
+                "x": 2423,
+                "y": 196
+            }
+        },
+        "fullScreen_swipeUp": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "file_config": {
+        "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Youxia.json",
+        "filename": "Youxia",
+        "isModifiedExternally": false,
+        "lastSyncTime": 1772000316632,
+        "prefix": "",
+        "savedViewport": {
+            "x": 210,
+            "y": 335,
+            "zoom": 0.5
+        },
+        "version": "v1.2.0"
+    },
+    "node_configs": {
+        "Youxia": {
+            "position": {
+                "x": -172,
+                "y": 72
+            }
+        },
+        "Youxia-ReceiveLottery": {
+            "position": {
+                "x": 2400,
+                "y": -128
+            }
+        },
+        "Youxia-enterMyPage": {
+            "position": {
+                "x": 122,
+                "y": -371
+            }
+        },
+        "Youxia-enterSignPage1": {
+            "position": {
+                "x": 626,
+                "y": -86
+            }
+        },
+        "Youxia-enterSignPage2": {
+            "position": {
+                "x": 626,
+                "y": -374
+            }
+        },
+        "Youxia-findLotteryButton": {
+            "position": {
+                "x": 1610,
+                "y": -142
+            }
+        },
+        "Youxia-flagSignPage": {
+            "position": {
+                "x": 1101,
+                "y": -122
+            }
+        },
+        "Youxia-recoButtonColor": {
+            "position": {
+                "x": 2034,
+                "y": -162
+            }
+        },
+        "Youxia-recoRedeemCode": {
+            "position": {
+                "x": 2730,
+                "y": -86
+            }
+        },
+        "Youxia-resultReceivedLottery": {
+            "position": {
+                "x": 3038,
+                "y": -98
+            }
+        },
+        "Youxia-result_NoLottery": {
+            "position": {
+                "x": 2034,
+                "y": 226
+            }
+        },
+        "Youxia-result_SignSucceed": {
+            "position": {
+                "x": 1959,
+                "y": -441
+            }
+        },
+        "Youxia-sign": {
+            "position": {
+                "x": 1610,
+                "y": -501
+            }
+        },
+        "Youxia-swipeUp": {
+            "position": {
+                "x": 1378,
+                "y": 196
+            }
+        },
+        "startYouxia": {
+            "position": {
+                "x": 205,
+                "y": 207
+            }
+        },
+        "stopYouxia": {
+            "position": {
+                "x": 2413,
+                "y": 354
+            }
+        }
+    }
+}

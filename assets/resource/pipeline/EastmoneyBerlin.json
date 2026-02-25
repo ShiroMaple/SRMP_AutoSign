@@ -96,7 +96,8 @@
         },
         "action": "Click",
         "next": [
-            "EastmoneyBerlin-flagNewBondsPage"
+            "EastmoneyBerlin-flagNewBondsPage",
+            "EastmoneyBerlin-enterNewBondsPage"
         ]
     },
     "EastmoneyBerlin-flagNewBondsPage": {

@@ -1,414 +1,294 @@
 {
-  "$__mpe_config_Youxia": {
-    "$__mpe_code": {
-      "filePath": "D:\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Youxia.json",
-      "filename": "Youxia",
-      "lastSyncTime": 1771511344076,
-      "prefix": "",
-      "savedViewport": {
-        "x": -104,
-        "y": 493,
-        "zoom": 0.99
-      },
-      "version": "v1.1.3"
-    }
-  },
-  "$__mpe_external_FullScreen-swipeUp_Youxia": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2423,
-        "y": 196
-      }
-    }
-  },
-  "$__mpe_external_fullScreen_swipeUp_Youxia": {
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 0
-      }
-    }
-  },
-  "Youxia": {
-    "$__mpe_code": {
-      "position": {
-        "x": -172,
-        "y": 72
-      }
-    },
-    "next": [
-      "Youxia-flagSignPage",
-      "Youxia-enterSignPage1",
-      "Youxia-enterSignPage2",
-      "Youxia-enterMyPage",
-      "[JumpBack]startYouxia"
-    ]
-  },
-  "Youxia-ReceiveLottery": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2400,
-        "y": -128
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "Youxia-recoRedeemCode"
-    ],
-    "post_delay": 1500,
-    "recognition": {
-      "param": {
-        "expected": "领取",
-        "roi": [
-          257,
-          1043,
-          214,
-          150
+    "Youxia": {
+        "next": [
+            "Youxia-flagSignPage",
+            "Youxia-enterSignPage1",
+            "Youxia-enterSignPage2",
+            "Youxia-enterMyPage",
+            {
+                "jump_back": true,
+                "name": "startYouxia"
+            }
         ]
-      },
-      "type": "OCR"
-    }
-  },
-  "Youxia-enterMyPage": {
-    "$__mpe_code": {
-      "position": {
-        "x": 122,
-        "y": -371
-      }
     },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "Youxia-enterSignPage1",
-      "Youxia-enterSignPage2",
-      "Youxia-enterMyPage"
-    ],
-    "recognition": {
-      "param": {
-        "roi": [
-          560,
-          1421,
-          160,
-          180
+    "Youxia-ReceiveLottery": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Youxia-recoRedeemCode"
         ],
-        "template": "Youxia/enterMyPage.png"
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "Youxia-enterSignPage1": {
-    "$__mpe_code": {
-      "position": {
-        "x": 626,
-        "y": -86
-      }
+        "post_delay": 1500,
+        "recognition": {
+            "param": {
+                "expected": "领取",
+                "roi": [
+                    257,
+                    1043,
+                    214,
+                    150
+                ]
+            },
+            "type": "OCR"
+        }
     },
-    "action": {
-      "param": {},
-      "type": "Click"
+    "Youxia-enterMyPage": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Youxia-enterSignPage1",
+            "Youxia-enterSignPage2",
+            "Youxia-enterMyPage"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    560,
+                    1421,
+                    160,
+                    180
+                ],
+                "template": "Youxia/enterMyPage.png"
+            },
+            "type": "TemplateMatch"
+        }
     },
-    "next": [
-      "Youxia-flagSignPage",
-      "Youxia-enterSignPage2"
-    ],
-    "recognition": {
-      "param": {
-        "expected": "前往领取",
-        "roi": [
-          395,
-          518,
-          325,
-          258
+    "Youxia-enterSignPage1": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Youxia-flagSignPage",
+            "Youxia-enterSignPage2"
+        ],
+        "recognition": {
+            "param": {
+                "expected": "前往领取",
+                "roi": [
+                    395,
+                    518,
+                    325,
+                    258
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "Youxia-enterSignPage2": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Youxia-flagSignPage"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    228,
+                    900,
+                    263,
+                    200
+                ],
+                "template": "Youxia/entranceSign2.png"
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "Youxia-findLotteryButton": {
+        "next": [
+            "Youxia-recoButtonColor"
+        ],
+        "on_error": [
+            "Youxia-result_NoLottery"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    226,
+                    1062,
+                    269,
+                    184
+                ],
+                "template": "Youxia/buttonLottery.png"
+            },
+            "type": "TemplateMatch"
+        },
+        "timeout": 5000
+    },
+    "Youxia-flagSignPage": {
+        "next": [
+            "Youxia-sign",
+            "Youxia-findLotteryButton",
+            {
+                "jump_back": true,
+                "name": "Youxia-swipeUp"
+            }
+        ],
+        "on_error": [
+            "fullScreen_swipeUp"
+        ],
+        "post_delay": 1500,
+        "recognition": {
+            "param": {
+                "expected": "游侠福利月历",
+                "roi": [
+                    209,
+                    24,
+                    302,
+                    150
+                ]
+            },
+            "type": "OCR"
+        },
+        "timeout": 10000
+    },
+    "Youxia-recoButtonColor": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Youxia-ReceiveLottery"
+        ],
+        "on_error": [
+            "fullScreen_swipeUp"
+        ],
+        "post_wait_freezes": 1000,
+        "recognition": {
+            "param": {
+                "lower": [
+                    210,
+                    60,
+                    0
+                ],
+                "method": 4,
+                "roi": "Youxia-findLotteryButton",
+                "upper": [
+                    255,
+                    200,
+                    60
+                ]
+            },
+            "type": "ColorMatch"
+        },
+        "timeout": 10000
+    },
+    "Youxia-recoRedeemCode": {
+        "action": {
+            "param": {
+                "cmd": "screencap -p /sdcard/Pictures/CD-KEY/screenshot_$(date +%Y%m%d_%H%M%S).png"
+            },
+            "type": "Shell"
+        },
+        "focus": {
+            "Node.Action.Succeeded": "{name}获得兑换码"
+        },
+        "next": [
+            "Youxia-resultReceivedLottery"
+        ],
+        "timeout": 30000
+    },
+    "Youxia-resultReceivedLottery": {
+        "next": [
+            "fullScreen_swipeUp"
         ]
-      },
-      "type": "OCR"
-    }
-  },
-  "Youxia-enterSignPage2": {
-    "$__mpe_code": {
-      "position": {
-        "x": 626,
-        "y": -374
-      }
     },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "Youxia-flagSignPage"
-    ],
-    "recognition": {
-      "param": {
-        "roi": [
-          228,
-          900,
-          263,
-          200
-        ],
-        "template": "Youxia/entranceSign2.png"
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "Youxia-findLotteryButton": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1610,
-        "y": -142
-      }
-    },
-    "next": [
-      "Youxia-recoButtonColor"
-    ],
-    "on_error": [
-      "Youxia-result_NoLottery"
-    ],
-    "recognition": {
-      "param": {
-        "roi": [
-          226,
-          1062,
-          269,
-          184
-        ],
-        "template": "Youxia/buttonLottery.png"
-      },
-      "type": "TemplateMatch"
-    },
-    "timeout": 5000
-  },
-  "Youxia-flagSignPage": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1101,
-        "y": -122
-      }
-    },
-    "next": [
-      "Youxia-sign",
-      "Youxia-findLotteryButton",
-      "[JumpBack]Youxia-swipeUp"
-    ],
-    "on_error": [
-      "fullScreen_swipeUp"
-    ],
-    "post_delay": 1500,
-    "recognition": {
-      "param": {
-        "expected": "游侠福利月历",
-        "roi": [
-          209,
-          24,
-          302,
-          150
+    "Youxia-result_NoLottery": {
+        "focus": {
+            "Node.Recognition.Starting": "{name}无抽奖"
+        },
+        "next": [
+            "fullScreen_swipeUp"
         ]
-      },
-      "type": "OCR"
     },
-    "timeout": 10000
-  },
-  "Youxia-recoButtonColor": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2034,
-        "y": -162
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "Youxia-ReceiveLottery"
-    ],
-    "on_error": [
-      "fullScreen_swipeUp"
-    ],
-    "post_wait_freezes": 1000,
-    "recognition": {
-      "param": {
-        "lower": [
-          210,
-          60,
-          0
+    "Youxia-result_SignSucceed": {
+        "focus": {
+            "Node.Recognition.Succeeded": "{name}签到成功"
+        },
+        "next": [
+            "Youxia-flagSignPage"
         ],
-        "method": 4,
-        "roi": "Youxia-findLotteryButton",
-        "upper": [
-          255,
-          200,
-          60
-        ]
-      },
-      "type": "ColorMatch"
+        "recognition": {
+            "param": {
+                "expected": "签到成功",
+                "roi": [
+                    322,
+                    1359,
+                    142,
+                    75
+                ]
+            },
+            "type": "OCR"
+        }
     },
-    "timeout": 10000
-  },
-  "Youxia-recoRedeemCode": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2730,
-        "y": -86
-      }
-    },
-    "action": {
-      "param": {
-        "cmd": "screencap -p /sdcard/Pictures/CD-KEY/screenshot_$(date +%Y%m%d_%H%M%S).png"
-      },
-      "type": "Shell"
-    },
-    "focus": {
-      "Node.Action.Succeeded": "{name}获得兑换码"
-    },
-    "next": [
-      "Youxia-resultReceivedLottery"
-    ],
-    "timeout": 30000
-  },
-  "Youxia-resultReceivedLottery": {
-    "$__mpe_code": {
-      "position": {
-        "x": 3038,
-        "y": -98
-      }
-    },
-    "next": [
-      "fullScreen_swipeUp"
-    ]
-  },
-  "Youxia-result_NoLottery": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2034,
-        "y": 226
-      }
-    },
-    "focus": {
-      "Node.Recognition.Starting": "{name}无抽奖"
-    },
-    "next": [
-      "fullScreen_swipeUp"
-    ]
-  },
-  "Youxia-result_SignSucceed": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1959,
-        "y": -441
-      }
-    },
-    "focus": {
-      "Node.Recognition.Succeeded": "{name}签到成功"
-    },
-    "next": [
-      "Youxia-flagSignPage"
-    ],
-    "recognition": {
-      "param": {
-        "expected": "签到成功",
-        "roi": [
-          322,
-          1359,
-          142,
-          75
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "Youxia-sign": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1610,
-        "y": -501
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "Youxia-result_SignSucceed"
-    ],
-    "on_error": [
-      "Youxia-flagSignPage"
-    ],
-    "recognition": {
-      "param": {
-        "roi": [
-          30,
-          200,
-          658,
-          1330
+    "Youxia-sign": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "Youxia-result_SignSucceed"
         ],
-        "template": "Youxia/buttonSign.png",
-        "threshold": 0.9
-      },
-      "type": "TemplateMatch"
-    },
-    "timeout": 3000
-  },
-  "Youxia-swipeUp": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1378,
-        "y": 196
-      }
-    },
-    "action": {
-      "param": {
-        "begin": [
-          362,
-          1528,
-          1,
-          1
+        "on_error": [
+            "Youxia-flagSignPage"
         ],
-        "duration": 500,
-        "end": [
-          [
-            362,
-            153,
-            1,
-            1
-          ]
-        ]
-      },
-      "type": "Swipe"
+        "recognition": {
+            "param": {
+                "roi": [
+                    30,
+                    200,
+                    658,
+                    1330
+                ],
+                "template": "Youxia/buttonSign.png",
+                "threshold": 0.9
+            },
+            "type": "TemplateMatch"
+        },
+        "timeout": 3000
     },
-    "post_wait_freezes": 300
-  },
-  "startYouxia": {
-    "$__mpe_code": {
-      "position": {
-        "x": 205,
-        "y": 207
-      }
+    "Youxia-swipeUp": {
+        "action": {
+            "param": {
+                "begin": [
+                    362,
+                    1528,
+                    1,
+                    1
+                ],
+                "duration": 500,
+                "end": [
+                    [
+                        362,
+                        153,
+                        1,
+                        1
+                    ]
+                ]
+            },
+            "type": "Swipe"
+        },
+        "post_wait_freezes": 300
     },
-    "action": {
-      "param": {
-        "package": "net.ali213.YX"
-      },
-      "type": "StartApp"
+    "startYouxia": {
+        "action": {
+            "param": {
+                "package": "net.ali213.YX"
+            },
+            "type": "StartApp"
+        }
+    },
+    "stopYouxia": {
+        "action": {
+            "param": {
+                "package": "net.ali213.YX"
+            },
+            "type": "StopApp"
+        }
     }
-  },
-  "stopYouxia": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2413,
-        "y": 354
-      }
-    },
-    "action": {
-      "param": {
-        "package": "net.ali213.YX"
-      },
-      "type": "StopApp"
-    }
-  }
 }

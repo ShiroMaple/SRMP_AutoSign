@@ -3,12 +3,12 @@
         "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Idlefish.json",
         "filename": "Idlefish",
         "isModifiedExternally": false,
-        "lastSyncTime": 1771922298549,
+        "lastSyncTime": 1771999468552,
         "prefix": "",
         "savedViewport": {
-            "x": -1136,
-            "y": 279,
-            "zoom": 0.66
+            "x": 388,
+            "y": -133,
+            "zoom": 0.76
         },
         "separatedConfigPath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\.Idlefish.mpe.json",
         "version": "v1.2.0"
@@ -17,133 +17,133 @@
         "Idlefish": {
             "position": {
                 "x": 652,
-                "y": 193
+                "y": 611
             }
         },
         "Idlefish-clickBack": {
             "position": {
-                "x": 3532,
-                "y": 483
+                "x": 1932,
+                "y": 615
             }
         },
         "Idlefish-clickExp": {
             "position": {
-                "x": 2921,
-                "y": -136
+                "x": 1292,
+                "y": 235
             }
         },
         "Idlefish-confirmApp": {
             "position": {
                 "x": 972,
-                "y": 112
+                "y": 530
             }
         },
         "Idlefish-enterMyPage": {
             "position": {
                 "x": 1932,
-                "y": 108
+                "y": 978
             }
         },
         "Idlefish-enterMyPost": {
             "position": {
-                "x": 3532,
-                "y": 86
+                "x": 2572,
+                "y": 516
             }
         },
         "Idlefish-enterSignPage": {
             "position": {
-                "x": 1216,
-                "y": 367
+                "x": 1292,
+                "y": 826
             }
         },
         "Idlefish-fetchExp": {
             "position": {
-                "x": 2619,
-                "y": -136
+                "x": 972,
+                "y": 219
             }
         },
         "Idlefish-flagMyPage": {
             "position": {
                 "x": 2252,
-                "y": 82
+                "y": 952
             }
         },
         "Idlefish-isLoading": {
             "position": {
-                "x": 12,
-                "y": 57
+                "x": 663,
+                "y": 214
             }
         },
         "Idlefish-isStuck": {
             "position": {
                 "x": 332,
-                "y": 135
+                "y": 553
             }
         },
         "Idlefish-reFlash": {
             "position": {
-                "x": 3852,
-                "y": 62
+                "x": 2892,
+                "y": 486
             }
         },
         "Idlefish-result_ReFlashed": {
             "position": {
-                "x": 4172,
-                "y": 12
+                "x": 3212,
+                "y": 452
             }
         },
         "Idlefish-result_ReflashFailed": {
             "position": {
-                "x": 4172,
-                "y": 335
+                "x": 3212,
+                "y": 775
             }
         },
         "Idlefish-result_Signed": {
             "position": {
-                "x": 1694,
-                "y": 375
+                "x": 1612,
+                "y": 913
             }
         },
         "Idlefish-result_fetchExpFailed": {
             "position": {
-                "x": 3248,
-                "y": -124
+                "x": 1612,
+                "y": 335
             }
         },
         "Idlefish-result_fetchedExp": {
             "position": {
-                "x": 3262,
-                "y": -394
+                "x": 1612,
+                "y": 12
             }
         },
         "Idlefish-rollDice": {
             "position": {
-                "x": 1454,
-                "y": 225
+                "x": 1612,
+                "y": 658
             }
         },
         "Idlefish-sign": {
             "position": {
-                "x": 1454,
-                "y": 766
+                "x": 12,
+                "y": 942
             }
         },
         "restartIdlefish": {
             "position": {
                 "x": 332,
-                "y": 469
+                "y": 887
             }
         },
         "startIdlefish": {
             "position": {
                 "x": 972,
-                "y": 367
+                "y": 785
             }
         },
         "stopIdlefish": {
             "position": {
-                "x": 4492,
-                "y": 88
+                "x": 3532,
+                "y": 528
             }
         }
     }

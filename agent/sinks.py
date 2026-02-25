@@ -1,7 +1,7 @@
 # agent/sinks.py
 from maa.agent.agent_server import AgentServer
 from maa.tasker import TaskerEventSink
-from maa.context import ContextEventSink
+from maa.context import Context,ContextEventSink
 from maa.event_sink import NotificationType
 from task_manager import GlobalTaskManager
 import re
@@ -22,9 +22,9 @@ class TaskStatusSink(TaskerEventSink):
         # 任务成功/失败输出并清理
         elif noti_type in [NotificationType.Succeeded, NotificationType.Failed]:
             if detail.entry != "NotifyReport":
-                status = "成功" if noti_type == NotificationType.Succeeded else "失败"
+                status = "完成" if noti_type == NotificationType.Succeeded else "失败"
                 display_name = manager._convert_task_name(detail.entry)
-                icon = "✅" if noti_type == NotificationType.Succeeded else "❌"
+                icon = "☑️" if noti_type == NotificationType.Succeeded else "❌"
                 print(f"[{icon}] 任务{status}: {display_name}")
                 manager.record_task_result(detail.entry, noti_type == NotificationType.Succeeded)
                 manager.unregister_task(detail.task_id)

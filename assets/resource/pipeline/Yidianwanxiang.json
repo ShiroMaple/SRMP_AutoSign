@@ -1,269 +1,183 @@
 {
-  "$__mpe_config_一点万象": {
-    "$__mpe_code": {
-      "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Yidianwanxiang.json",
-      "filename": "一点万象",
-      "lastSyncTime": 1767690504721,
-      "prefix": "",
-      "savedViewport": {
-        "x": 238,
-        "y": 87,
-        "zoom": 0.99
-      },
-      "version": "v0.14.2_beta_4"
-    }
-  },
-  "$__mpe_external_FullScreen-swipeBack_一点万象": {
-    "$__mpe_code": {
-      "position": {
-        "x": 905,
-        "y": 337
-      }
-    }
-  },
-  "$__mpe_external_FullScreen-swipeUp_一点万象": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1805,
-        "y": 335
-      }
-    }
-  },
-  "MIXC-closePopWindow": {
-    "$__mpe_code": {
-      "position": {
-        "x": 600,
-        "y": 419
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "recognition": {
-      "param": {
-        "green_mask": true,
-        "roi": [
-          273,
-          1081,
-          171,
-          171
-        ],
-        "template": "MIXC/buttonClose.png"
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "MIXC-enterSignPage": {
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 82
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "MIXC-sign",
-      "MIXC-enterSignPage"
-    ],
-    "recognition": {
-      "param": {
-        "roi": [
-          551,
-          28,
-          169,
-          167
-        ],
-        "template": "MIXC/entranceSignPage.png"
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "MIXC-enterStarPage": {
-    "$__mpe_code": {
-      "position": {
-        "x": 600,
-        "y": 54
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "MIXC-enterSignPage",
-      "MIXC-enterStarPage",
-      {
-        "jump_back": true,
-        "name": "fullScreen_swipeBack"
-      }
-    ],
-    "post_wait_freezes": 100,
-    "recognition": {
-      "param": {
-        "expected": [
-          "签到得万象星",
-          "我的"
-        ],
-        "roi": [
-          374,
-          831,
-          346,
-          770
+    "MIXC": {
+        "next": [
+            "MIXC-confirmApp",
+            {
+                "jump_back": true,
+                "name": "MIXC-closePopWindow"
+            },
+            {
+                "jump_back": true,
+                "name": "startMIXC"
+            }
         ]
-      },
-      "type": "OCR"
-    }
-  },
-  "MIXC-openBox": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 54
-      }
     },
-    "action": {
-      "param": {},
-      "type": "Click"
+    "MIXC-closePopWindow": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "recognition": {
+            "param": {
+                "green_mask": true,
+                "roi": [
+                    273,
+                    1081,
+                    171,
+                    171
+                ],
+                "template": "MIXC/buttonClose.png"
+            },
+            "type": "TemplateMatch"
+        }
     },
-    "next": [
-      "stopMIXC"
-    ],
-    "post_wait_freezes": 1500,
-    "recognition": {
-      "param": {
-        "expected": "立即打开",
-        "roi": [
-          206,
-          977,
-          297,
-          183
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "MIXC-result_signSucceed": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 0
-      }
-    },
-    "action": "DoNothing",
-    "focus": {
-      "Node.Recognition.Succeeded": "{name}签到成功"
-    },
-    "next": [
-      "MIXC-openBox"
-    ],
-    "on_error": [
-      "fullScreen_swipeUp"
-    ],
-    "post_delay": 0,
-    "recognition": {
-      "param": {
-        "template": "MIXC/TodaySigned.png",
-        "threshold": [
-          0.85
-        ]
-      },
-      "type": "TemplateMatch"
-    },
-    "timeout": 5000
-  },
-  "MIXC-sign": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1200,
-        "y": 54
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "MIXC-result_signSucceed"
-    ],
-    "post_wait_freezes": 500,
-    "recognition": {
-      "param": {
-        "roi": [
-          250,
-          296,
-          220,
-          921
+    "MIXC-confirmApp": {
+        "next": [
+            "MIXC-enterStarPage",
+            {
+                "jump_back": true,
+                "name": "MIXC-closePopWindow"
+            }
         ],
-        "template": "MIXC/buttonSign.png"
-      },
-      "type": "TemplateMatch"
+        "recognition": {
+            "param": {
+                "expected": ".*万象.*"
+            },
+            "type": "OCR"
+        }
+    },
+    "MIXC-enterSignPage": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "MIXC-sign",
+            "MIXC-enterSignPage"
+        ],
+        "recognition": {
+            "param": {
+                "roi": [
+                    551,
+                    28,
+                    169,
+                    167
+                ],
+                "template": "MIXC/entranceSignPage.png"
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "MIXC-enterStarPage": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "MIXC-enterSignPage",
+            "MIXC-enterStarPage",
+            {
+                "jump_back": true,
+                "name": "fullScreen_swipeBack"
+            }
+        ],
+        "post_wait_freezes": 100,
+        "recognition": {
+            "param": {
+                "expected": [
+                    "签到得万象星",
+                    "我的"
+                ],
+                "roi": [
+                    374,
+                    831,
+                    346,
+                    770
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "MIXC-openBox": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "stopMIXC"
+        ],
+        "post_wait_freezes": 1500,
+        "recognition": {
+            "param": {
+                "expected": "立即打开",
+                "roi": [
+                    206,
+                    977,
+                    297,
+                    183
+                ]
+            },
+            "type": "OCR"
+        }
+    },
+    "MIXC-result_signSucceed": {
+        "focus": {
+            "Node.Recognition.Succeeded": "{name}签到成功"
+        },
+        "next": [
+            "MIXC-openBox"
+        ],
+        "on_error": [
+            "fullScreen_swipeUp"
+        ],
+        "post_delay": 0,
+        "recognition": {
+            "param": {
+                "template": "MIXC/TodaySigned.png",
+                "threshold": [
+                    0.85
+                ]
+            },
+            "type": "TemplateMatch"
+        },
+        "timeout": 5000
+    },
+    "MIXC-sign": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "next": [
+            "MIXC-result_signSucceed"
+        ],
+        "post_wait_freezes": 500,
+        "recognition": {
+            "param": {
+                "roi": [
+                    250,
+                    296,
+                    220,
+                    921
+                ],
+                "template": "MIXC/buttonSign.png"
+            },
+            "type": "TemplateMatch"
+        }
+    },
+    "startMIXC": {
+        "action": {
+            "param": {
+                "package": "com.crland.mixc"
+            },
+            "type": "StartApp"
+        }
+    },
+    "stopMIXC": {
+        "action": {
+            "param": {
+                "package": "com.crland.mixc"
+            },
+            "type": "StopApp"
+        }
     }
-  },
-  "MIXC": {
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 115
-      }
-    },
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
-    "next": [
-      "MIXC-enterStarPage",
-      {
-        "jump_back": true,
-        "name": "MIXC-closePopWindow"
-      },
-      {
-        "jump_back": true,
-        "name": "startMIXC"
-      }
-    ],
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
-  },
-  "startMIXC": {
-    "$__mpe_code": {
-      "position": {
-        "x": 300,
-        "y": 337
-      }
-    },
-    "action": {
-      "param": {
-        "package": "com.crland.mixc"
-      },
-      "type": "StartApp"
-    },
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
-  },
-  "stopMIXC": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2100,
-        "y": 101
-      }
-    },
-    "action": {
-      "param": {
-        "package": "com.crland.mixc"
-      },
-      "type": "StopApp"
-    },
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
-  }
 }

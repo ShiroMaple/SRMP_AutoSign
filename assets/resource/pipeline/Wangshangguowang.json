@@ -70,7 +70,8 @@
                 "threshold": 0.8
             },
             "type": "TemplateMatch"
-        }
+        },
+        "timeout": 8000
     },
     "Wsgw-clickReceive": {
         "action": {

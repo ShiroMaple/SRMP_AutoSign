@@ -1,0 +1,92 @@
+{
+    "external_nodes": {
+        "fullScreen_swipeBack": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "fullScreen_swipeUp": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "file_config": {
+        "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Yidianwanxiang.json",
+        "filename": "一点万象",
+        "isModifiedExternally": false,
+        "lastSyncTime": 1771999307414,
+        "prefix": "",
+        "savedViewport": {
+            "x": 191,
+            "y": 175,
+            "zoom": 0.66
+        },
+        "separatedConfigPath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\.Yidianwanxiang.mpe.json",
+        "version": "v1.2.0"
+    },
+    "node_configs": {
+        "MIXC": {
+            "position": {
+                "x": 0,
+                "y": 115
+            }
+        },
+        "MIXC-closePopWindow": {
+            "position": {
+                "x": 600,
+                "y": 419
+            }
+        },
+        "MIXC-confirmApp": {
+            "position": {
+                "x": 312,
+                "y": 124
+            }
+        },
+        "MIXC-enterSignPage": {
+            "position": {
+                "x": 900,
+                "y": 82
+            }
+        },
+        "MIXC-enterStarPage": {
+            "position": {
+                "x": 600,
+                "y": 54
+            }
+        },
+        "MIXC-openBox": {
+            "position": {
+                "x": 1800,
+                "y": 54
+            }
+        },
+        "MIXC-result_signSucceed": {
+            "position": {
+                "x": 1500,
+                "y": 0
+            }
+        },
+        "MIXC-sign": {
+            "position": {
+                "x": 1200,
+                "y": 54
+            }
+        },
+        "startMIXC": {
+            "position": {
+                "x": 265,
+                "y": 555
+            }
+        },
+        "stopMIXC": {
+            "position": {
+                "x": 2100,
+                "y": 101
+            }
+        }
+    }
+}

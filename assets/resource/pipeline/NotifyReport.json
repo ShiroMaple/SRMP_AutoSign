@@ -7,7 +7,7 @@
             "type": "DoNothing"
         },
         "focus": {
-            "Node.PipelineNode.Starting": "📤 正在发送全局报告..."
+            "Node.PipelineNode.Starting": "📤 正在推送通知..."
         }
     }
 }

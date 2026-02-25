@@ -1,0 +1,53 @@
+{
+    "file_config": {
+        "filePath": "C:\\Users\\gaoft\\Documents\\CodeSpace\\SRMP_AutoSign\\assets\\resource\\pipeline\\Xiaoheihe.json",
+        "filename": "Xiaoheihe",
+        "isModifiedExternally": false,
+        "lastSyncTime": 1772000288788,
+        "prefix": "",
+        "savedViewport": {
+            "x": 529,
+            "y": 358,
+            "zoom": 0.76
+        },
+        "version": "v1.2.0"
+    },
+    "node_configs": {
+        "Xiaoheihe": {
+            "position": {
+                "x": 0,
+                "y": 44
+            }
+        },
+        "Xiaoheihe_SignFailed": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "Xiaoheihe_SignSucceed": {
+            "position": {
+                "x": 600,
+                "y": 5
+            }
+        },
+        "enterXiaoheihe": {
+            "position": {
+                "x": 307,
+                "y": -212
+            }
+        },
+        "startXiaoheihe": {
+            "position": {
+                "x": 297,
+                "y": 197
+            }
+        },
+        "stopXiaoheihe": {
+            "position": {
+                "x": 907,
+                "y": 21
+            }
+        }
+    }
+}

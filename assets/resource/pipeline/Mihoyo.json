@@ -185,7 +185,7 @@
         ],
         "rate_limit": 2000,
         "next": [
-            "Mihoyo-result_passGenshin",
+            "Mihoyo-checkGenshinResult",
             "Mihoyo-signGenshin"
         ],
         "on_error": [
@@ -214,6 +214,47 @@
             "[JumpBack]Mihoyo-swipeBack"
         ],
         "post_delay": 3000
+    },
+    "Mihoyo-checkGenshinResult": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "Mihoyo-result_passGenshin",
+            "Mihoyo-retryGenshinCount",
+            "Mihoyo-swipeBackAndRetryGenshin"
+        ]
+    },
+    "Mihoyo-retryGenshinCount": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "max_hit": 8,
+        "next": [
+            "Mihoyo-checkGenshinResult"
+        ]
+    },
+    "Mihoyo-swipeBackAndRetryGenshin": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    718,
+                    1137,
+                    1,
+                    1
+                ],
+                "end": [
+                    600,
+                    1137,
+                    1,
+                    1
+                ],
+                "duration": 500
+            }
+        },
+        "next": [
+            "Mihoyo-checkGenshinResult"
+        ],
+        "on_error": "Mihoyo-result_GenshinFailed"
     },
     "Mihoyo-result_GenshinFailed": {
         "pre_delay": 0,
@@ -280,12 +321,53 @@
         "rate_limit": 2000,
         "post_delay": 1500,
         "next": [
-            "Mihoyo-result_passStarrail",
+            "Mihoyo-checkStarrailResult",
             "Mihoyo-signStarrail"
         ],
         "on_error": [
             "Mihoyo-result_StarrailFailed"
         ]
+    },
+    "Mihoyo-checkStarrailResult": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "Mihoyo-result_passStarrail",
+            "Mihoyo-retryStarrailCount",
+            "Mihoyo-swipeBackAndRetryStarrail"
+        ]
+    },
+    "Mihoyo-retryStarrailCount": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "max_hit": 8,
+        "next": [
+            "Mihoyo-checkStarrailResult"
+        ]
+    },
+    "Mihoyo-swipeBackAndRetryStarrail": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    718,
+                    1137,
+                    1,
+                    1
+                ],
+                "end": [
+                    600,
+                    1137,
+                    1,
+                    1
+                ],
+                "duration": 500
+            }
+        },
+        "next": [
+            "Mihoyo-checkStarrailResult"
+        ],
+        "on_error": "Mihoyo-result_StarrailFailed"
     },
     "Mihoyo-result_passStarrail": {
         "recognition": {
@@ -370,12 +452,53 @@
         ],
         "rate_limit": 2000,
         "next": [
-            "Mihoyo-result_ZZZSigned",
+            "Mihoyo-checkZZZResult",
             "Mihoyo-signZZZ"
         ],
         "on_error": [
             "Mihoyo-result_ZZZFailed"
         ]
+    },
+    "Mihoyo-checkZZZResult": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "Mihoyo-result_ZZZSigned",
+            "Mihoyo-retryZZZCount",
+            "Mihoyo-swipeBackAndRetryZZZ"
+        ]
+    },
+    "Mihoyo-retryZZZCount": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "max_hit": 8,
+        "next": [
+            "Mihoyo-checkZZZResult"
+        ]
+    },
+    "Mihoyo-swipeBackAndRetryZZZ": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    718,
+                    1137,
+                    1,
+                    1
+                ],
+                "end": [
+                    600,
+                    1137,
+                    1,
+                    1
+                ],
+                "duration": 500
+            }
+        },
+        "next": [
+            "Mihoyo-checkZZZResult"
+        ],
+        "on_error": "Mihoyo-result_ZZZFailed"
     },
     "Mihoyo-result_ZZZSigned": {
         "recognition": {
