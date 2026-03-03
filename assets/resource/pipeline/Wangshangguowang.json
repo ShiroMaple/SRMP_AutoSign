@@ -168,7 +168,11 @@
             "type": "Click"
         },
         "next": [
-            "Wsgw-checkSignPage"
+            "Wsgw-checkSignPage",
+            {
+                "jump_back": true,
+                "name": "fullScreen_swipeBack"
+            }
         ],
         "recognition": {
             "param": {
