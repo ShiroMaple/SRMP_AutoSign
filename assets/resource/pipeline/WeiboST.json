@@ -159,6 +159,9 @@
         ]
     },
     "Weibo-进入某个超话": {
+        "focus": {
+            "Node.Action.Succeeded": "已进入某超话页面并点击签到"
+        },
         "action": "Click",
         "target": "Weibo-检测超话签到按钮",
         "post_delay": 1500,

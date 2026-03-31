@@ -29,12 +29,15 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": "Wechat/entrance_FloatWindow.png",
+                "template": [
+                    "Wechat/entrance_FloatWindow.png",
+                    "Wechat/entrance_FloatWindow2.png"
+                ],
                 "roi": [
-                    25,
-                    92,
-                    45,
-                    45
+                    3,
+                    71,
+                    84,
+                    85
                 ]
             }
         },

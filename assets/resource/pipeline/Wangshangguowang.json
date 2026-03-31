@@ -144,6 +144,7 @@
         },
         "next": [
             "Wsgw-checkSignPage",
+            "Wsgw-findSignButton1",
             {
                 "jump_back": true,
                 "name": "Wsgw-ignoreWarning"
