@@ -262,9 +262,7 @@
             1076,
             114,
             43
-        ] //,
-        //"next": "TapTap-enterArknightsPage",
-        //"interrupt": "TapTap-clickBack"
+        ]
     },
     //识别兑换码前必须先识别名称，已在进入签到页面时识别
     "TapTap-recoRedeemCode": {
@@ -339,14 +337,18 @@
     "TapTap-passGenshin": {
         "next": [
             "TapTap-enterStarrailPage",
-            "[JumpBack]TapTap-clickBack"
+            "[JumpBack]TapTap-swipeBack"
         ]
     },
     "TapTap-enterStarrailPage": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
-                "template": "TapTap/iconSRPage.png",
+                "template": [
+                    "TapTap/iconSRPage.png",
+                    "TapTap/iconSRPage2.png"
+                ],
+                "green_mask": true,
                 "roi": [
                     107,
                     144,
@@ -393,7 +395,7 @@
     "TapTap-passStarrail": {
         "next": [
             "TapTap-enterZZZPage",
-            "[JumpBack]TapTap-clickBack"
+            "[JumpBack]TapTap-swipeBack"
         ]
     },
     "TapTap-enterZZZPage": {
@@ -446,7 +448,7 @@
     "TapTap-passZZZ": {
         "next": [
             "TapTap-enterArknightsPage",
-            "[JumpBack]TapTap-clickBack"
+            "[JumpBack]TapTap-swipeBack"
         ]
     },
     "TapTap-enterArknightsPage": {
@@ -499,7 +501,7 @@
     "TapTap-passArknights": {
         "next": [
             "TapTap-enterP5XPage",
-            "[JumpBack]TapTap-clickBack"
+            "[JumpBack]TapTap-swipeBack"
         ]
     },
     "TapTap-enterP5XPage": {
@@ -571,6 +573,27 @@
             46,
             52
         ]
+    },
+    "TapTap-swipeBack": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    718,
+                    1137,
+                    1,
+                    1
+                ],
+                "end": [
+                    600,
+                    1137,
+                    1,
+                    1
+                ],
+                "duration": 500
+            }
+        },
+        "post_delay": 1000
     },
     "TapTap-end": {
         "next": [
