@@ -67,7 +67,10 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": "签到领豆",
+                "expected": [
+                    "签到领豆",
+                    "签到领京豆"
+                ],
                 "roi": [
                     0,
                     261,

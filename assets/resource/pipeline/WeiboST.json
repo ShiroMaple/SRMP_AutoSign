@@ -3,6 +3,7 @@
         "next": [
             "Weibo-locateRedeemCode",
             "进入超话页面",
+            "进入超话社区",
             "谢绝评分",
             "[JumpBack]微博点击返回",
             "[JumpBack]启动微博"
@@ -56,6 +57,7 @@
         },
         "next": [
             "进入超话页面",
+            "进入超话社区",
             "[JumpBack]微博点击返回"
         ]
     },
@@ -93,6 +95,36 @@
             "[JumpBack]微博点击返回"
         ]
     },
+    "进入超话社区": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "超话社区",
+                "roi": [
+                    261,
+                    79,
+                    188,
+                    73
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    219,
+                    1519,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 3000,
+        "next": [
+            "进入超话签到页面",
+            "[JumpBack]微博点击返回"
+        ]
+    },
     "进入超话签到页面": {
         "recognition": {
             "type": "OCR",
@@ -103,9 +135,9 @@
                     "查看全部"
                 ],
                 "roi": [
-                    551,
+                    251,
                     235,
-                    169,
+                    469,
                     68
                 ]
             }
