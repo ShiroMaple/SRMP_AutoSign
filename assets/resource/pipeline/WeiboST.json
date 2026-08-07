@@ -97,27 +97,15 @@
     },
     "进入超话社区": {
         "recognition": {
-            "type": "OCR",
+            "type": "TemplateMatch",
             "param": {
-                "expected": "超话社区",
-                "roi": [
-                    261,
-                    79,
-                    188,
-                    73
+                "template": [
+                    "Weibo/iconST3.png"
                 ]
             }
         },
         "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    219,
-                    1519,
-                    1,
-                    1
-                ]
-            }
+            "type": "Click"
         },
         "post_delay": 3000,
         "next": [
@@ -135,10 +123,10 @@
                     "查看全部"
                 ],
                 "roi": [
-                    251,
-                    235,
-                    469,
-                    68
+                    439,
+                    157,
+                    279,
+                    128
                 ]
             }
         },

@@ -92,7 +92,10 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": "赚更多京豆",
+                "expected": [
+                    "赚更多京豆",
+                    "恭喜获得"
+                ],
                 "roi": [
                     21,
                     351,
